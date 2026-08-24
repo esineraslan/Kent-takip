@@ -92,5 +92,21 @@ View -> ViewModel/Command -> Use-case/Policy -> Repository -> Service/Store
 
 Gerçek kişisel veri, credential, gerçek SMS/SSO, gerçek 153 yazımı veya üretim backend'i yoktur. Demo hesap/olayları sentetiktir. Gerçek servis ve veri geçişleri ilgili kurum/KVKK onayından sonra ayrı adaptör olarak eklenir.
 
+## Ekran görüntüleri
+
+Ekran görüntüleri sonradan aşağıdaki başlıkların altına eklenebilir:
+
+### Vatandaş uygulaması
+
+<!-- Ekran görüntüsünü ekleyin: docs/screenshots/citizen-home.png -->
+
+### Personel paneli
+
+<!-- Ekran görüntüsünü ekleyin: docs/screenshots/staff-dashboard.png -->
+
+### Harita ve bildirim akışı
+
+<!-- Ekran görüntüsünü ekleyin: docs/screenshots/map-report-flow.png -->
+
 Uzman incelemesi ve paket bazlı kanıtlar `docs/EXPERT_REVIEW.md` ile `docs/work_packages/` altındadır.
 WP-05–07 için son çalıştırılabilir kanıt matrisi `docs/QUALITY_EVIDENCE_WP05_WP07.md` dosyasındadır.
