@@ -1,0 +1,12 @@
+{
+  "fixtureVersion": "wp10-2026.08",
+  "cases": [
+    {"id":"ai_eval_01","expectedCategory":"road_surface_damage","predictedCategory":"road_surface_damage","containsSensitiveMedia":false,"predictedPrivacy":"safe","expectedDuplicate":true,"predictedDuplicate":true,"responseValid":true},
+    {"id":"ai_eval_02","expectedCategory":"lighting","predictedCategory":"lighting","containsSensitiveMedia":true,"predictedPrivacy":"manual_review_required","expectedDuplicate":false,"predictedDuplicate":false,"responseValid":true},
+    {"id":"ai_eval_03","expectedCategory":"water_infrastructure","predictedCategory":"water_infrastructure","containsSensitiveMedia":true,"predictedPrivacy":"manual_review_required","expectedDuplicate":true,"predictedDuplicate":true,"responseValid":true},
+    {"id":"ai_eval_04","expectedCategory":"traffic_signal","predictedCategory":"traffic_signal","containsSensitiveMedia":false,"predictedPrivacy":"safe","expectedDuplicate":false,"predictedDuplicate":false,"responseValid":true},
+    {"id":"ai_eval_05","expectedCategory":"waste_cleaning","predictedCategory":"waste_cleaning","containsSensitiveMedia":false,"predictedPrivacy":"safe","expectedDuplicate":false,"predictedDuplicate":false,"responseValid":true},
+    {"id":"ai_eval_06","expectedCategory":"park_green","predictedCategory":"road_surface_damage","containsSensitiveMedia":false,"predictedPrivacy":"safe","expectedDuplicate":false,"predictedDuplicate":false,"responseValid":true},
+    {"id":"ai_eval_07","expectedCategory":"road_surface_damage","predictedCategory":null,"containsSensitiveMedia":false,"predictedPrivacy":"unavailable","expectedDuplicate":false,"predictedDuplicate":false,"responseValid":false}
+  ]
+}

@@ -1,0 +1,123 @@
+name: quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.0
+          channel: stable
+          cache: true
+      - name: Verify SDK
+        run: flutter --version
+      - name: Generate platform shells
+        run: bash tool/bootstrap_platforms.sh
+      - name: Resolve dependencies
+        run: flutter pub get
+      - name: Format
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Documentation consistency
+        run: dart run tool/check_doc_consistency.dart
+      - name: SDK-independent source structure
+        run: python3 tool/validate_source_structure.py
+      - name: Localization completeness and hard-coded copy gate
+        run: python3 tool/check_localization.py
+      - name: Accessibility source invariants
+        run: python3 tool/check_accessibility_source.py
+      - name: Security hardening invariants
+        run: python3 tool/validate_security_hardening.py
+      - name: Dependency license evidence
+        run: python3 tool/dependency_license_report.py --strict
+      - name: Code generation consistency
+        run: dart run tool/check_generated_sources.dart
+      - name: Seed validation
+        run: dart run tool/validate_demo_data.dart
+      - name: Asset reference validation
+        run: dart run tool/verify_asset_references.dart
+      - name: Design token and brand manifest validation
+        run: python3 tool/validate_design_system.py
+      - name: Deterministic AI evaluation gate
+        run: python3 tool/evaluate_demo_ai.py
+      - name: WP-21 performance benchmark gate
+        run: dart run tool/benchmark_wp21.dart --out build/wp21/performance_report.json
+      - name: WP-21/WP-22 traceability gate
+        run: python3 tool/validate_wp21_wp22.py
+      - name: WP-23/WP-24 traceability gate
+        run: python3 tool/validate_wp23_wp24.py
+      - name: 2026-08-19 map/auth/sidebar regression gate
+        run: python3 tool/validate_hotfix_2026_08_19.py
+      - name: Secret and PII scan
+        run: python3 tool/scan_sensitive_data.py
+      - name: Analyze
+        run: flutter analyze --fatal-infos --fatal-warnings
+      - name: Test
+        run: |
+          dart test packages/kent_takip_domain packages/kent_takip_contracts packages/kent_takip_persistence packages/kent_takip_application apps/demo_server
+          flutter test apps/kent_takip_app --coverage
+          flutter test apps/kent_takip_app/integration_test
+      - name: Build web
+        working-directory: apps/kent_takip_app
+        run: flutter build web --release --dart-define=APP_ENV=demo --dart-define=DEMO_DATA_MODE=local
+      - name: Build shared web adapter
+        working-directory: apps/kent_takip_app
+        run: flutter build web --release --dart-define=APP_ENV=demo --dart-define=DEMO_DATA_MODE=shared --dart-define=DEMO_API_URL=http://127.0.0.1:8080
+      - name: Build Android
+        working-directory: apps/kent_takip_app
+        run: flutter build apk --release --dart-define=APP_ENV=demo --dart-define=DEMO_DATA_MODE=local
+      - name: SBOM source
+        run: flutter pub deps --json > dependency-sbom.json
+      - name: Release evidence manifest
+        run: python3 tool/build_release_evidence.py --out build/wp23/release_evidence.json
+      - name: Coverage thresholds
+        run: python3 tool/check_coverage.py --strict
+      - name: Golden baseline approval
+        run: python3 tool/check_golden_baselines.py --strict
+      - name: Golden regression
+        run: flutter test apps/kent_takip_app/test/goldens/wp05_matrix_test.dart --dart-define=KT_ENABLE_GOLDENS=true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quality-evidence
+          if-no-files-found: warn
+          path: |
+            apps/kent_takip_app/coverage/lcov.info
+            dependency-sbom.json
+            build/dependency-license-report.txt
+            build/wp21/performance_report.json
+            build/wp22/coverage_report.json
+            build/wp23/release_evidence.json
+
+  ios:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.0
+          channel: stable
+          cache: true
+      - run: bash tool/bootstrap_platforms.sh
+      - run: flutter pub get
+      - name: Build iOS without signing
+        working-directory: apps/kent_takip_app
+        run: flutter build ios --release --no-codesign --dart-define=APP_ENV=demo --dart-define=DEMO_DATA_MODE=local
+      - name: iOS release evidence
+        run: python3 tool/build_release_evidence.py --out build/wp23/ios_release_evidence.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-release-evidence
+          if-no-files-found: warn
+          path: build/wp23/ios_release_evidence.json

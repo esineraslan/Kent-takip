@@ -1,0 +1,50 @@
+{
+  "artifacts": {
+    "android_aab": {
+      "bytes": null,
+      "path": "apps/kent_takip_app/build/app/outputs/bundle/release/app-release.aab",
+      "sha256": null,
+      "status": "missing"
+    },
+    "android_apk": {
+      "bytes": null,
+      "path": "apps/kent_takip_app/build/app/outputs/flutter-apk/app-release.apk",
+      "sha256": null,
+      "status": "missing"
+    },
+    "coverage_lcov": {
+      "bytes": null,
+      "path": "apps/kent_takip_app/coverage/lcov.info",
+      "sha256": null,
+      "status": "missing"
+    },
+    "dependency_sbom": {
+      "bytes": null,
+      "path": "dependency-sbom.json",
+      "sha256": null,
+      "status": "missing"
+    },
+    "ios_info_plist": {
+      "bytes": null,
+      "path": "apps/kent_takip_app/build/ios/iphoneos/Runner.app/Info.plist",
+      "sha256": null,
+      "status": "missing"
+    },
+    "performance_report": {
+      "bytes": null,
+      "path": "build/wp21/performance_report.json",
+      "sha256": null,
+      "status": "missing"
+    },
+    "web_index": {
+      "bytes": null,
+      "path": "apps/kent_takip_app/build/web/index.html",
+      "sha256": null,
+      "status": "missing"
+    }
+  },
+  "gitCommit": null,
+  "releaseVersion": "0.2.0-rc.2+1",
+  "sourceMode": "source_archive_without_git_metadata",
+  "sourceTreeSha256ExcludingReleaseManifest": "c7feca9df83e0f6dc566f9df5010b5cb385a19c9f7b55c0f1ca18ba91f812715"
+}

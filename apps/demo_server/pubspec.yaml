@@ -1,0 +1,25 @@
+name: kent_takip_demo_server
+description: Shared JSON demo server for two-client Kent Takip scenarios.
+version: 0.2.0-rc.1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ">=3.13.0 <4.0.0"
+
+dependencies:
+  kent_takip_application:
+    path: ../../packages/kent_takip_application
+  kent_takip_contracts:
+    path: ../../packages/kent_takip_contracts
+  kent_takip_domain:
+    path: ../../packages/kent_takip_domain
+  kent_takip_persistence:
+    path: ../../packages/kent_takip_persistence
+  shelf: 1.4.2
+  shelf_router: 1.1.4
+  shelf_web_socket: 3.0.0
+  web_socket_channel: 3.0.3
+
+dev_dependencies:
+  test: ^1.26.3

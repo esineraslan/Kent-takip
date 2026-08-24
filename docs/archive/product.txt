@@ -1,0 +1,1090 @@
+# İstanbul Kent Sorunları Yönetim Platformu
+
+## 1. Ürün Özeti
+
+İstanbul Kent Sorunları Yönetim Platformu; vatandaşların İstanbul’da
+yaşanan güncel ve planlanan kent olaylarını harita üzerinden takip
+etmesini, karşılaştıkları sorunları fotoğraf ve konumla İstanbul
+Büyükşehir Belediyesine bildirmesini ve bildirimlerinin çözüm sürecini
+izlemesini sağlayan bir mobil uygulamadır.
+
+Platformun belediye tarafında web tabanlı bir yönetim paneli bulunur.
+Yetkili belediye çalışanları bu panel üzerinden:
+
+- Vatandaş bildirimlerini inceleyebilir.
+- Bildirimleri ilgili İBB birimine yönlendirebilir.
+- Gerektiğinde ilçe belediyelerine aktarabilir.
+- Aktif ve planlanan çalışmaları haritaya ekleyebilir.
+- Çalışmaların trafik ve toplu taşıma üzerindeki etkilerini analiz edebilir.
+- Bildirim durumlarını ve tahmini çözüm sürelerini güncelleyebilir.
+
+Yapay zekâ; bildirimlerin sınıflandırılması, risk seviyelerinin
+belirlenmesi, kişisel bilgilerin bulanıklaştırılması, benzer kayıtların
+bulunması, kötüye kullanımın tespit edilmesi ve bildirimlerin
+önceliklendirilmesi gibi işlemlerde destek sağlar.
+
+Yapay zekâ nihai karar verici değildir. Kritik, şüpheli veya düşük
+güvenli bildirimler yetkili belediye çalışanı tarafından değerlendirilir.
+
+---
+
+## 2. Problem
+
+İstanbul’da vatandaşlar:
+
+- Yol ve altyapı çalışmalarından zamanında haberdar olamayabilir.
+- Elektrik ve su kesintilerine ilişkin bilgilere farklı kaynaklardan ulaşır.
+- Karşılaştıkları sorunun hangi belediye biriminin sorumluluğunda
+  olduğunu bilemeyebilir.
+- Yaptıkları bildirimin hangi aşamada olduğunu kolayca takip edemeyebilir.
+- Haritada bulunmayan aktif çalışmaları belediyeye hızlı biçimde
+  iletemeyebilir.
+- Tahmini çözüm süresi hakkında yeterli bilgi alamayabilir.
+
+Belediye birimleri ise:
+
+- Çok sayıda vatandaş bildirimini manuel olarak sınıflandırmak zorunda kalabilir.
+- Yanlış birime gönderilen bildirimler nedeniyle zaman kaybedebilir.
+- Tekrarlanan, ilgisiz veya kötü niyetli bildirimleri ayırt etmekte zorlanabilir.
+- Sahadaki bazı çalışmaları haritaya zamanında ekleyemeyebilir.
+- Planlanan çalışmaların trafik ve toplu taşıma üzerindeki etkisini
+  bütüncül biçimde değerlendiremeyebilir.
+- Vatandaşlara çözüm süreci hakkında düzenli bilgi veremeyebilir.
+
+---
+
+## 3. Ürünün Amacı
+
+Platformun temel amaçları:
+
+- Vatandaş ile belediye arasındaki iletişimi hızlandırmak
+- İstanbul’daki kent sorunlarını tek platformda görünür hâle getirmek
+- Bildirimlerin doğru belediye birimine hızlı ulaşmasını sağlamak
+- Belediye çalışmalarını vatandaşlara zamanında duyurmak
+- Haritada bulunmayan çalışmaların vatandaş katkısıyla fark edilmesini sağlamak
+- Bildirimlerin çözüm sürecini şeffaf biçimde göstermek
+- Belediye kararlarını veri ve yapay zekâ destekli analizlerle güçlendirmek
+
+Bu uygulama acil çağrı veya hayati tehlike bildirim sistemi değildir.
+
+---
+
+## 4. Hedef Kullanıcılar
+
+### Vatandaşlar
+
+- İstanbul’da yaşayan kişiler
+- İstanbul’da çalışan veya eğitim gören kişiler
+- Şehri ziyaret eden kişiler
+- Ulaşım güzergâhları hakkında bilgi almak isteyen kişiler
+- Kent sorunlarını belediyeye bildirmek isteyen kişiler
+
+### Belediye Kullanıcıları
+
+- İBB şikâyet değerlendirme personeli
+- Belediye saha ekipleri
+- Yol ve altyapı planlama birimleri
+- Trafik ve ulaşım yönetim birimleri
+- Toplu taşıma birimleri
+- İlçe ve bölge sorumluları
+- Belediye yöneticileri
+- Sistem yöneticileri
+
+---
+
+## 5. Platformlar
+
+### Vatandaş Mobil Uygulaması
+
+Vatandaş uygulaması Android ve iOS için geliştirilecektir.
+
+Uygulamada:
+
+- Şehir olayları harita üzerinde görüntülenebilir.
+- Aktif ve planlanan çalışmalar incelenebilir.
+- Fotoğraf ve konumla sorun bildirilebilir.
+- Haritada olmayan çalışmalar bildirilebilir.
+- Bildirimlerin çözüm süreci takip edilebilir.
+- Durum değişiklikleri için bildirim alınabilir.
+
+### Belediye Yönetim Paneli
+
+Belediye yönetim paneli web tabanlı olacaktır.
+
+Panel yalnızca yetkilendirilmiş belediye çalışanları tarafından
+kullanılacaktır. Kullanıcının görebileceği veriler ve yapabileceği
+işlemler, görevine ve bağlı olduğu birime göre sınırlandırılacaktır.
+
+---
+
+## 6. Kullanıcı Kaydı ve Giriş
+
+Kullanıcı hesap oluşturmadan genel haritayı inceleyebilir.
+
+Sorun bildirmek ve “Bildirimlerim” bölümünü kullanmak için telefon
+numarasıyla doğrulanmış hesap gerekir.
+
+Kayıt süreci:
+
+1. Kullanıcı telefon numarasını girer.
+2. Tek kullanımlık doğrulama kodu gönderilir.
+3. Kullanıcı kodu uygulamaya girer.
+4. Doğrulama başarılı olduğunda hesap oluşturulur.
+5. Kamera, konum ve bildirim izinleri ayrı ayrı istenir.
+
+Telefon numarası:
+
+- Diğer vatandaşlara gösterilmez.
+- Hesap doğrulama ve zorunlu bilgilendirme için kullanılır.
+- Pazarlama amacıyla kullanılmaz.
+- Yalnızca görevi gerektiren yetkili personel tarafından görülebilir.
+
+---
+
+## 7. Vatandaş Uygulamasının Ana Menüleri
+
+Vatandaş uygulamasında üç ana menü bulunur:
+
+1. Şehir Haritası
+2. Sorun Bildir
+3. Bildirimlerim
+
+---
+
+## 8. Şehir Haritası
+
+Haritada gösterilebilecek olaylar:
+
+- Trafik yoğunluğu
+- Trafiği etkileyen olaylar
+- Toplu taşıma aksamaları
+- Yol çalışmaları
+- Altyapı çalışmaları
+- İnşaat kaynaklı yol etkileri
+- Su kesintileri
+- Elektrik kesintileri
+- Yol kapatmaları
+- Güzergâh değişiklikleri
+- Belediyenin uygun gördüğü diğer kent olayları
+
+### Kırmızı Ünlem Pini
+
+Belediye tarafından doğrulanmış ve aktif olan olayları gösterir.
+
+Kırmızı pin:
+
+- İçinde ünlem simgesi taşır.
+- Bütün vatandaşlara gösterilir.
+- Belediye çalışanlarının haritasında görünür.
+
+### Sarı Saat Pini
+
+Belediye tarafından sisteme eklenen planlanmış çalışmaları gösterir.
+
+Sarı pin:
+
+- İçinde saat simgesi taşır.
+- Bütün vatandaşlara gösterilir.
+- Çalışma başladığında kırmızı ünlem pinine dönüşür.
+
+### Gri Soru İşareti Pini
+
+Gri pin, vatandaş tarafından gönderilmiş fakat henüz belediye
+tarafından doğrulanmamış bildirimi temsil eder.
+
+Gri pin bütün vatandaşlara gösterilmez.
+
+#### Bildirimi Yapan Vatandaş
+
+Kullanıcı kendi bildirimini, güven ve risk skorundan bağımsız olarak
+kendi kişisel haritasında gri soru işareti piniyle görür.
+
+Pin üzerinde şu açıklama gösterilir:
+
+> Bildiriminiz alındı — belediye doğrulaması bekleniyor.
+
+#### Diğer Vatandaşlar
+
+Diğer vatandaşlar doğrulanmamış gri pinleri göremez.
+
+Bildirim yalnızca belediye çalışanı tarafından doğrulandığında kırmızı
+ünlem pinine dönüşür ve genel haritada yayınlanır.
+
+#### Belediye Çalışanı
+
+Bildirimler dinamik risk ve güven değerlendirmesine tabi tutulur.
+
+Dinamik eşiği geçen bildirimler belediye haritasında gri soru işareti
+pini olarak gösterilir.
+
+Dinamik eşiği geçmeyen düşük riskli bildirimler belediye haritasında
+varsayılan olarak gösterilmez ancak “Düşük Güvenli Bildirimler”
+kuyruğuna eklenir.
+
+Yetkili çalışan bu kayıtları ayrı filtreyle haritada görüntüleyebilir.
+
+Yüksek veya kritik risk sinyali bulunan kayıtlar, içerik güveni düşük
+olsa bile öncelikli incelemeye alınır.
+
+### Pin Görünürlük Özeti
+
+| Durum | Bildirimi yapan vatandaş | Belediye çalışanı | Diğer vatandaşlar |
+|---|---|---|---|
+| Doğrulama bekliyor | Kendi haritasında gri pin | Dinamik sonuca göre harita veya kuyruk | Görmez |
+| Yüksek risk sinyali | Kendi haritasında gri pin | Öncelikli inceleme | Görmez |
+| Belediye onayladı | Kırmızı ünlem pini | Kırmızı ünlem pini | Kırmızı ünlem pini |
+| Belediye reddetti | Gri pin kaldırılır | Kayıt kapatılır | Görmez |
+| Başka kayıtla birleştirildi | Ana olay takip edilir | Birleştirilmiş kayıt | Yalnızca onaylanmış ana olay |
+
+---
+
+## 9. Sorun Bildirme
+
+Vatandaş karşılaştığı kent sorununu anlık fotoğraf, açıklama ve konum
+bilgisiyle İBB’ye gönderebilir.
+
+Bildirim oluşturma süreci:
+
+1. Kullanıcı “Sorun Bildir” menüsünü açar.
+2. Uygulama kamerasıyla sorunun anlık fotoğrafını çeker.
+3. Sistem fotoğrafın kalite ve içerik kontrolünü yapar.
+4. Kullanıcının izni varsa mevcut konum önerilir.
+5. Kullanıcı konumu kontrol eder ve gerekirse değiştirir.
+6. Kullanıcı kısa bir açıklama yazar.
+7. Yapay zekâ fotoğrafı, açıklamayı, konumu ve zamanı analiz eder.
+8. Sistem olası kategori ve belediye birimini önerir.
+9. Kullanıcı bilgileri kontrol ederek bildirimi gönderir.
+10. Bildirim İBB yönetim paneline iletilir.
+11. Kullanıcıya takip numarası verilir.
+12. Bildirim kullanıcının haritasında gri soru işareti piniyle gösterilir.
+
+---
+
+## 10. Kamera ve Fotoğraf Politikası
+
+MVP’de bildirim göndermek için uygulama kamerasıyla anlık fotoğraf
+çekmek zorunludur.
+
+Galeriden fotoğraf seçimine izin verilmez.
+
+Bu kararın amaçları:
+
+- Eski fotoğraf kullanımını azaltmak
+- İnternetten alınan görsellerle bildirim yapılmasını zorlaştırmak
+- Fotoğrafın bildirim anına ait olma ihtimalini artırmak
+- Spam ve mükerrer bildirim kontrolünü kolaylaştırmak
+- MVP kapsamını sınırlamak
+
+Fotoğraf üzerinde:
+
+- Görüntü kalitesi
+- Sorunla ilişki
+- Açıklamayla uyum
+- Konumla uyum
+- Benzer fotoğraf kullanımı
+- Uygunsuz içerik
+- Yüz, plaka ve diğer kişisel bilgiler
+
+kontrol edilir.
+
+### Fotoğraf Bulanıklaştırma
+
+Yapay zekâ fotoğraftaki:
+
+- İnsan yüzlerini
+- Araç plakalarını
+- Telefon numaralarını
+- Algılanabilen diğer kişisel bilgileri
+
+otomatik olarak bulanıklaştırır.
+
+Sistemde iki fotoğraf sürümü tutulur:
+
+1. Yetkili personelin erişebildiği orijinal fotoğraf
+2. Halka açık kullanım için bulanıklaştırılmış fotoğraf
+
+Bulanıklaştırma başarısız olursa fotoğraf halka açık olarak yayınlanmaz.
+Bildirim yalnızca belediye çalışanının incelemesine sunulur.
+
+Güven değerlendirmesi ve fotoğraf yayın güvenliği ayrı kontrol edilir.
+
+---
+
+## 11. Yapay Zekânın Rolü
+
+Yapay zekâ:
+
+- Sorun türünü sınıflandırır.
+- Uygun belediye birimini önerir.
+- Olayın risk seviyesini tahmin eder.
+- Bildirim önceliğini belirlemeye yardımcı olur.
+- Fotoğraf, açıklama, konum ve zaman uyumunu değerlendirir.
+- Eksik veya ilgisiz içeriği tespit eder.
+- Benzer bildirimleri bulur.
+- Mükerrer bildirim önerisi oluşturur.
+- İçerik güven skoru üretir.
+- Kötüye kullanım sinyallerini tespit eder.
+- Yüz ve plakaları bulanıklaştırır.
+- Tahmini çözüm süresine yardımcı olur.
+- Belediye çalışmalarının etki analizini destekler.
+
+Yapay zekâ:
+
+- Bir bildirimin kesin doğru veya yanlış olduğuna karar vermez.
+- Düşük güvenli bildirimi otomatik olarak silmez veya reddetmez.
+- Tek başına kullanıcı hesabını kalıcı olarak kapatmaz.
+- Belediye çalışanının yerine nihai karar vermez.
+- Kritik bildirimi insan incelemesi olmadan sonuçlandırmaz.
+- Ürettiği skorları kesin gerçek olarak sunmaz.
+
+---
+
+## 12. Dinamik Güven ve Risk Değerlendirmesi
+
+Sistem sabit bir yüzde 70 güven eşiği kullanmaz.
+
+Bir bildirimin belediye haritasında gri pin olarak gösterilip
+gösterilmeyeceği ve hangi kuyrukta inceleneceği şu bileşenlere göre
+belirlenir:
+
+1. İçerik güven skoru
+2. Olay risk seviyesi
+3. Vatandaş güven skoru
+4. Fotoğraf, açıklama, konum ve zaman tutarlılığı
+5. Yakındaki benzer kayıtlar
+6. Kötüye kullanım sinyalleri
+
+Bu değerlendirme belediye ekranındaki görünürlük ve inceleme önceliği
+için kullanılır. Nihai kabul veya ret kararını belediye çalışanı verir.
+
+### 12.1 İçerik Güven Skoru
+
+Fotoğrafın, açıklamanın, konumun ve zamanın birbiriyle ne kadar tutarlı
+olduğunu gösterir.
+
+Değer aralığı: 0–100
+
+### 12.2 Olay Risk Seviyesi
+
+Sorunun gerçekleşmesi durumunda yaratabileceği potansiyel zararı gösterir.
+
+Değerler:
+
+- Düşük
+- Orta
+- Yüksek
+- Kritik sinyal
+
+### 12.3 Vatandaş Güven Skoru
+
+Kullanıcının geçmiş bildirimlerinin belediye tarafından doğrulanma ve
+kötüye kullanım sonuçlarına dayanan yardımcı skordur.
+
+Değer aralığı: 0–100
+
+Bu üç sonuç ayrı tutulur ve belediye çalışanına gerekçeleriyle gösterilir.
+
+---
+
+## 13. Kategori ve Risk Odaklı Dinamik Eşik
+
+Her sorun kategorisi aynı değerlendirme eşiğine sahip değildir.
+
+Düşük riskli olaylarda belediye haritasındaki bilgi kalabalığını azaltmak
+için yüksek güven eşiği uygulanabilir.
+
+Yüksek riskli olaylarda gerçek bir tehlikenin gözden kaçırılmasını
+önlemek için daha düşük eşik kullanılabilir.
+
+Örnek başlangıç eşikleri:
+
+| Risk seviyesi | Örnek olaylar | Belediye haritasında gri pin eşiği |
+|---|---|---:|
+| Düşük | Kırık kaldırım taşı, küçük yüzey hasarı | %85 |
+| Orta | Yol çukuru, bozuk trafik levhası, yerel su birikintisi | %70 |
+| Yüksek | Ana su borusu patlağı, yolu kapatan büyük hasar | %50 |
+| Kritik sinyal | Doğalgaz kokusu, büyük çökme veya ciddi tehlike ihtimali | Eşikten bağımsız kritik inceleme |
+
+Bu eşikler başlangıç ürün varsayımlarıdır ve pilot sonuçlarına göre
+güncellenebilir.
+
+### Kritik Sinyal
+
+Kritik bir sinyal algılandığında:
+
+1. Kullanıcıya uygulamanın acil çağrı sistemi olmadığı açıklanır.
+2. Kullanıcı uygun resmî acil yardım kanalına yönlendirilir.
+3. Bildirim “Kritik İnceleme” kuyruğuna eklenir.
+4. Belediye haritasında turuncu uyarı üçgeniyle yetkili personele gösterilir.
+5. Bildirimin doğrulandığı otomatik olarak varsayılmaz.
+6. Kayıt diğer vatandaşların genel haritasında yayınlanmaz.
+
+Belediye haritasındaki simgeler:
+
+- Gri soru işareti: Normal doğrulama bekleyen bildirim
+- Turuncu uyarı üçgeni: Yüksek veya kritik riskli inceleme
+- Kırmızı ünlem: Belediye tarafından doğrulanmış aktif olay
+- Sarı saat: Belediye tarafından yayınlanmış planlanan olay
+
+---
+
+## 14. Vatandaş Güven Skoru
+
+Sistem, kullanıcının geçmiş bildirimlerinin sonuçlarına göre yardımcı
+bir vatandaş güven skoru oluşturabilir.
+
+Güven skorunu artırabilecek durumlar:
+
+- Önceki bildirimlerin belediye tarafından doğrulanması
+- Fotoğraf, açıklama ve konum bilgilerinin tutarlı olması
+- Bildirimlerin mevcut belediye kayıtlarıyla eşleşmesi
+- Uzun süre kötüye kullanım göstermeden sistemin kullanılması
+
+Güven skorunu azaltabilecek durumlar:
+
+- Tekrarlanan ilgisiz bildirimler
+- Yanıltıcı veya tekrarlanan fotoğraflar
+- Fotoğraf ile konum arasında sürekli uyumsuzluk
+- Belediye tarafından kötüye kullanım olarak doğrulanan gönderimler
+- Otomatik veya olağan dışı gönderim davranışları
+
+Örnek eşik uyarlaması:
+
+- Yüksek güvenilirlik: Temel eşik en fazla 10 puan düşürülebilir.
+- Normal güvenilirlik: Kategori için belirlenen temel eşik kullanılır.
+- Düşük güvenilirlik: Temel eşik en fazla 20 puan artırılabilir.
+
+Örnek:
+
+- Temel eşiği yüzde 70 olan bildirim, yüksek güvenli vatandaş için
+  yüzde 60 eşikle belediye haritasına düşebilir.
+- Aynı kategori, düşük güven sinyali taşıyan hesap için yüzde 90 eşikle
+  değerlendirilebilir.
+
+Vatandaş güven skoru olayın gerçekliğinin kanıtı değildir. Yalnızca
+inceleme sırasını ve belediye ekranındaki görünürlüğü etkileyen yardımcı
+bir sinyaldir.
+
+### Güven Sistemi Koruma Kuralları
+
+- Yeni kullanıcılar düşük güvenli kabul edilmez; nötr skorla başlar.
+- Vatandaşlar birbirlerinin güven skorunu göremez.
+- Güven skoru tek başına ret gerekçesi olarak kullanılamaz.
+- Eski hataların etkisi zamanla azalır.
+- Tek hata büyük ve kalıcı puan kaybına neden olmaz.
+- Hatalı belediye kararı düzeltilirse skor da düzeltilir.
+- Kullanıcı otomatik değerlendirmenin insan tarafından incelenmesini isteyebilir.
+- Skor pazarlama veya temel belediye hizmetlerine erişimi kısıtlama
+  amacıyla kullanılmaz.
+- Hesap silindiğinde hukuki zorunluluk yoksa skor silinir veya anonimleştirilir.
+
+---
+
+## 15. Belediye İnceleme Kuyrukları
+
+Bildirimler dinamik değerlendirme sonucunda şu kuyruklardan birine eklenir:
+
+### Kritik İnceleme
+
+Kritik tehlike ihtimali bulunan bildirimlerdir.
+
+İçerik güveni düşük olsa bile hızlı insan incelemesine gönderilir.
+
+### Yüksek Öncelikli İnceleme
+
+Önemli hasar veya geniş etki ihtimali bulunan bildirimlerdir.
+
+### Normal İnceleme
+
+Kategoriye göre belirlenen dinamik eşiği geçen standart bildirimlerdir.
+
+Bu bildirimler belediye haritasında gri pin olarak gösterilebilir.
+
+### Düşük Güvenli İnceleme
+
+Dinamik eşiği geçmeyen düşük riskli bildirimlerdir.
+
+Varsayılan belediye haritasında gösterilmez ancak ayrı kuyrukta tutulur.
+Yetkili çalışan filtreyi açarak bu kayıtları haritada görebilir.
+
+### Kötüye Kullanım İncelemesi
+
+Otomatik gönderim, ilgisiz içerik veya tekrarlanan kötüye kullanım
+sinyalleri bulunan bildirimlerdir.
+
+Hiçbir bildirim yalnızca yapay zekâ skoru nedeniyle otomatik olarak
+kalıcı biçimde silinmez veya reddedilmez.
+
+---
+
+## 16. Haritada Bulunmayan Çalışmayı Bildirme
+
+1. Kullanıcı “Haritada olmayan çalışma” seçeneğini seçer.
+2. Uygulama kamerasıyla anlık fotoğraf çeker.
+3. İzin verilmişse konum önerilir.
+4. Kullanıcı konumu kontrol eder.
+5. Kullanıcı kısa açıklama ekler.
+6. Yapay zekâ fotoğrafı, açıklamayı, konumu ve zamanı analiz eder.
+7. Kişisel bilgiler otomatik olarak bulanıklaştırılır.
+8. Yakındaki aktif, planlanan ve bekleyen kayıtlar kontrol edilir.
+9. İçerik güveni, olay riski ve vatandaş güveni hesaplanır.
+10. Bildirim uygun belediye kuyruğuna gönderilir.
+11. Kullanıcı bildirimi kendi haritasında gri pin olarak görür.
+12. Diğer vatandaşlar bildirimi göremez.
+
+### Belediye Onayı
+
+Yetkili çalışan bildirimi doğruladığında:
+
+1. Kategori kontrol edilir.
+2. Sorumlu belediye birimi belirlenir.
+3. Başlangıç ve tahmini bitiş zamanı eklenir.
+4. Etkilenen alan belirlenir.
+5. Gri pin kırmızı ünlem pinine dönüşür.
+6. Kırmızı pin bütün vatandaşlara gösterilir.
+7. Bildirimi yapan kullanıcı bilgilendirilir.
+
+### Belediye Reddi
+
+Yetkili çalışan bildirimi reddederse:
+
+1. Kullanıcının kendi haritasındaki gri pin kaldırılır.
+2. Bildirim “Reddedildi” veya “Kapsam Dışı” durumuna geçirilir.
+3. Kullanıcıya mümkünse kısa gerekçe gösterilir.
+4. Kayıt genel haritada yayınlanmaz.
+
+### Mükerrer Bildirim
+
+Bildirim mevcut olayla aynıysa:
+
+1. Bildirim mevcut olayla birleştirilir.
+2. Kullanıcının gri pini kaldırılır.
+3. Kullanıcı doğrulanmış ana olaya yönlendirilir.
+4. Ana olayın çözüm süreci takip edilir.
+5. Genel haritada yalnızca doğrulanmış ana pin gösterilir.
+
+---
+
+## 17. Bildirimlerim
+
+Kullanıcı gönderdiği bildirimleri “Bildirimlerim” menüsünden takip eder.
+
+Bildirim durumları:
+
+1. Alındı
+2. Yapay zekâ ön incelemesinde
+3. İBB incelemesinde
+4. İlgili birime yönlendirildi
+5. İlçe belediyesine yönlendirildi
+6. Saha ekibine atandı
+7. Çalışma devam ediyor
+8. Ek bilgi gerekli
+9. Başka bildirimle birleştirildi
+10. Çözüldü
+11. Kapsam dışı
+12. Reddedildi
+
+Kullanıcı şu bilgileri görebilir:
+
+- Takip numarası
+- Gönderim tarihi
+- Konum
+- Kategori
+- Sorumlu birim
+- Güncel durum
+- Son güncellenme zamanı
+- Tahmini çözüm süresi
+- Belediye açıklaması
+- Ek bilgi talebi
+- Çözüm açıklaması
+- Varsa sonuç fotoğrafı
+
+### Tahmini Çözüm Süresi
+
+Çözüm süresi kesin tarih veya garanti olarak gösterilmez.
+
+Tahminde:
+
+- Sorun türü
+- Öncelik
+- Konum
+- Sorumlu birim
+- Geçmiş çözüm süreleri
+- Mevcut iş yoğunluğu
+- Saha koşulları
+- Gerekli ekip ve kaynaklar
+
+kullanılabilir.
+
+---
+
+## 18. Kurumsal Yönlendirme Modeli
+
+Vatandaş bildirimlerinin ilk kurumsal alıcısı İstanbul Büyükşehir
+Belediyesidir.
+
+Vatandaşın doğru belediye birimini veya ilçe belediyesini bilmesi gerekmez.
+
+1. Bildirim İBB sistemine iletilir.
+2. Yapay zekâ kategori ve sorumlu birim önerir.
+3. Yetkili İBB çalışanı öneriyi kontrol eder.
+4. Bildirim ilgili İBB birimine atanır.
+5. Konu ilçe belediyesinin sorumluluğundaysa ilgili belediyeye aktarılır.
+6. Aktarım nedeni, zamanı ve işlemi yapan personel kaydedilir.
+7. Vatandaş yönlendirmeden haberdar edilir.
+8. Aynı takip numarası kullanılmaya devam edilir.
+
+Aktarım sırasında süreç sıfırdan başlamaz ve vatandaştan yeni bildirim
+oluşturması istenmez.
+
+---
+
+## 19. Belediye Yönetim Paneli
+
+Belediye panelinde iki ana bölüm bulunur:
+
+1. Çalışma Planlama ve Etki Analizi
+2. Gelen Bildirimler
+
+### Çalışma Planlama ve Etki Analizi
+
+Yetkili çalışan:
+
+1. Çalışma konumunu seçer.
+2. Çalışma türünü belirler.
+3. Başlangıç tarihini ve saatini girer.
+4. Tahmini süreyi girer.
+5. Etkilenecek yolları veya bölgeleri belirtir.
+6. Sorumlu birimi seçer.
+7. Etki analizini çalıştırır.
+8. Sonuçları inceler.
+9. Çalışmayı kaydeder ve yayınlar.
+
+Sistem:
+
+- Tahmini trafik etkisi
+- Etkilenecek yollar
+- Etkilenecek toplu taşıma hatları
+- Riskli saatler
+- Diğer çalışmalarla çakışmalar
+- Alternatif tarih veya saat
+- Alternatif güzergâh
+- Vatandaş bilgilendirme metni
+
+önerebilir.
+
+### Gelen Bildirimler
+
+Yetkili çalışan bildirimleri:
+
+- İlçe
+- Mahalle
+- Konum
+- Tarih
+- Kategori
+- Risk seviyesi
+- İçerik güven skoru
+- Vatandaş güven skoru
+- Öncelik
+- Durum
+- Sorumlu birim
+- Mükerrer kayıt ihtimali
+
+ölçütlerine göre filtreleyebilir.
+
+Yetkili çalışan:
+
+- Bildirimi onaylayabilir veya reddedebilir.
+- Kategori ve önceliği değiştirebilir.
+- İlgili birime atayabilir.
+- İlçe belediyesine yönlendirebilir.
+- Saha ekibine atayabilir.
+- Vatandaştan ek bilgi isteyebilir.
+- Benzer kayıtları birleştirebilir.
+- Tahmini çözüm süresi belirleyebilir.
+- Durumu güncelleyebilir.
+- Çözüm açıklaması ve sonuç fotoğrafı ekleyebilir.
+
+---
+
+## 20. İBB Veri Setleri
+
+Temel veri kaynağı:
+
+https://data.ibb.gov.tr/
+
+MVP için öncelikli veriler:
+
+- İBB anlık trafik yoğunluk verisi
+- Erişilebilirse İSKİ arıza ve su kesintisi verileri
+- Erişilebilirse yol çalışması verileri
+- Erişilebilirse toplu taşıma aksama verileri
+
+### Veri Erişim Yöntemi
+
+API bulunuyorsa uygulama sunucusu veriyi API üzerinden düzenli olarak çeker.
+
+API bulunmuyorsa:
+
+1. CSV dosyası indirilir.
+2. Veri doğrulanır ve temizlenir.
+3. Geçerli kayıtlar veritabanına aktarılır.
+4. Mevcut kayıtlar güncellenir.
+5. Eski kayıtlar pasif hâle getirilir.
+6. İşlem zamanlanmış görevle tekrarlanır.
+
+Açık veride bulunmayan veya güncel olmayan bilgiler, yetkili belediye
+çalışanları tarafından web panelinden eklenir.
+
+Her kayıtta mümkün olduğunda:
+
+- Veri kaynağı
+- Kaynağın son güncellenme zamanı
+- Sisteme aktarılma zamanı
+- Güncellik durumu
+- Doğrulama durumu
+
+saklanır.
+
+---
+
+## 21. Acil Durum Kapsamı
+
+Bu uygulama acil çağrı hizmetlerinin yerine geçmez.
+
+Bildirim ekranında şu uyarı gösterilir:
+
+> Yangın, ağır yaralanma, devam eden şiddet olayı veya başka bir hayati
+> tehlike bulunuyorsa bu uygulamayı kullanmayın. Uygun resmî acil yardım
+> kanalına başvurun.
+
+Kritik sinyal algılandığında:
+
+- Kullanıcı uygun acil yardım kanalına yönlendirilir.
+- Uygulamanın acil müdahale garantisi vermediği açıklanır.
+- Bildirim belediyenin kritik inceleme kuyruğuna alınır.
+- Bildirim diğer vatandaşların haritasında yayınlanmaz.
+- Uygulama otomatik acil çağrı başlatmaz.
+
+---
+
+## 22. Kötüye Kullanım Politikası
+
+Normal kullanıcılar için sabit günlük bildirim kotası bulunmaz.
+
+Sistem teknik hız sınırları ve davranış analizi uygular.
+
+İncelenen durumlar:
+
+- Kısa sürede çok sayıda gönderim
+- Aynı fotoğrafın tekrar kullanılması
+- Fotoğraf, açıklama ve konum uyumsuzluğu
+- Sürekli ilgisiz içerik
+- Uygunsuz veya zararlı içerik
+- Reddedilen içeriğin tekrar gönderilmesi
+- Gerçekçi olmayan konum değişimleri
+- Otomatik gönderim girişimleri
+
+Kademeli müdahale:
+
+1. Kullanıcıdan bildirimi düzeltmesi istenir.
+2. Ek doğrulama uygulanır.
+3. Gönderimler geçici olarak yavaşlatılır.
+4. Hesap geçici olarak kısıtlanır.
+5. Ciddi durum insan incelemesine alınır.
+6. Uzun süreli kısıtlama insan kararıyla uygulanır.
+7. Kullanıcıya yeniden inceleme veya itiraz imkânı sunulur.
+
+---
+
+## 23. KVKK ve Kişisel Veri Yönetimi
+
+Platform, 6698 sayılı Kişisel Verilerin Korunması Kanunu ve ilgili
+düzenlemeler dikkate alınarak tasarlanacaktır.
+
+Nihai hukuki sebepler, veri sorumlusu rolleri, aktarım şartları ve
+saklama süreleri İBB’nin yetkili birimleri tarafından onaylanacaktır.
+
+### Temel İlkeler
+
+- Hukuka ve dürüstlük kurallarına uygun işleme
+- Doğru ve güncel veri kullanma
+- Belirli, açık ve meşru amaçlarla işleme
+- Amaçla bağlantılı, sınırlı ve ölçülü veri toplama
+- Verileri yalnızca gerekli süre boyunca saklama
+- İşleme şartı sona erdiğinde silme, yok etme veya anonimleştirme
+- Yetkisiz erişimi engelleme
+- İşlemleri denetlenebilir biçimde kaydetme
+
+### İşlenen Veri Kategorileri
+
+- Telefon numarası
+- Telefon doğrulama kayıtları
+- Bildirim açıklaması
+- Sorunun konumu
+- Anlık çekilen orijinal fotoğraf
+- Bulanıklaştırılmış fotoğraf
+- Bildirim zamanı ve durumu
+- İşlem geçmişi
+- Belediye çalışanı işlem kayıtları
+- Kötüye kullanım ve güvenlik sinyalleri
+- Vatandaş güven skoru
+- Sınırlı cihaz ve bağlantı güvenliği kayıtları
+- Kullanıcının izin kayıtları
+
+Sürekli hareket geçmişi, rehber, mikrofon kaydı veya ürün amacıyla
+ilgisiz veriler toplanmaz.
+
+### Konum Verisi
+
+- Konum yalnızca kullanıcı izin verdiğinde alınır.
+- Arka planda sürekli konum takibi yapılmaz.
+- Canlı konum geçici olarak kullanılır.
+- Canlı konum kalıcı olarak saklanmaz.
+- Bildirimde yalnızca sorunun seçilen konumu saklanır.
+- Kullanıcı manuel konum seçebilir.
+- Hareket geçmişi oluşturulmaz.
+
+### Rol Tabanlı Erişim
+
+- Vatandaş yalnızca kendi bildirimlerini görür.
+- Vatandaş kimliği ve telefon numarası genel haritada gösterilmez.
+- Halka yalnızca bulanık fotoğraf gösterilir.
+- Orijinal fotoğrafı yalnızca yetkili personel görür.
+- İlçe belediyesine yalnızca gerekli veriler aktarılır.
+- Kişisel veri erişimleri kaydedilir.
+
+### Güvenlik Önlemleri
+
+- Veriler aktarım sırasında şifrelenir.
+- Orijinal fotoğraflar depolama sırasında şifrelenir.
+- SMS kodları düz metin olarak saklanmaz.
+- Belediye panelinde güçlü kimlik doğrulama kullanılır.
+- Yetkilendirme rol ve görev esasına göre uygulanır.
+- Veri erişimleri loglanır.
+- Test ortamlarında gerçek kişisel veri kullanılmaz.
+
+---
+
+## 24. Veri Saklama ve İmha Politikası
+
+Aşağıdaki süreler MVP için ürün politikası önerisidir. Gerçek uygulamada
+İBB’nin arşiv, denetim ve mevzuat yükümlülüklerine göre kesinleştirilir.
+
+| Veri | Önerilen saklama süresi | Süre sonunda |
+|---|---:|---|
+| Canlı kullanıcı konumu | Yalnızca aktif oturum | Kalıcı kaydedilmez |
+| SMS doğrulama kodu | En fazla 5 dakika | Silinir |
+| Başarısız doğrulama kayıtları | 30 gün | Silinir veya anonimleştirilir |
+| Telefon numarası | Hesap aktif olduğu sürece | Hesap kapanınca, zorunluluk yoksa 30 gün içinde silinir |
+| Orijinal fotoğraf | Bildirim kapanışından sonra 180 gün | Hukuki ihtiyaç yoksa yok edilir |
+| Bulanıklaştırılmış fotoğraf | Bildirim kapanışından sonra 2 yıl | Silinir veya anonimleştirilir |
+| Sorunun konumu | Bildirim kapanışından sonra 2 yıl | Silinir veya anonimleştirilir |
+| Bildirim açıklaması | Bildirim kapanışından sonra 2 yıl | Silinir veya anonimleştirilir |
+| İşlem geçmişi | Bildirim kapanışından sonra 2 yıl | Kişisel bağlantısı kaldırılır |
+| Belediye erişim logları | 2 yıl | Güvenli biçimde silinir |
+| Kötüye kullanım kayıtları | Son olaydan sonra 1 yıl | Silinir veya anonimleştirilir |
+| Vatandaş güven skoru | Hesap aktif olduğu sürece | Hesap kapanınca gerekli süre sonunda silinir |
+| Aydınlatma ve izin kayıtları | Hesap süresi ve kapanıştan sonra 2 yıl | Hukuki ihtiyaç yoksa silinir |
+| Yedeklerdeki veriler | En fazla 90 günlük döngü | Döngü sonunda yok edilir |
+
+---
+
+## 25. Yarışma Prototipi Veri Politikası
+
+Yarışma veya hackathon gösteriminde gerçek vatandaşların telefon
+numarası, kesin konumu veya kişisel fotoğrafları kullanılmayacaktır.
+
+Prototipte:
+
+- Örnek telefon numaraları
+- Sentetik kullanıcı hesapları
+- Kurgusal bildirimler
+- Önceden hazırlanmış örnek fotoğraflar
+- Yaklaşık veya örnek konumlar
+- Simüle edilmiş güven ve risk skorları
+- Anonimleştirilmiş veya açık kullanım hakkına sahip veriler
+
+kullanılacaktır.
+
+Prototip şu süreci gösterecektir:
+
+1. Örnek vatandaş bildirimi oluşturma
+2. Fotoğrafta yüz ve plaka bulanıklaştırma
+3. İçerik güven skoru üretme
+4. Risk seviyesi belirleme
+5. Vatandaş güven skoru uygulama
+6. Dinamik eşik hesaplama
+7. Bildirimi uygun belediye kuyruğuna yerleştirme
+8. Belediye çalışanının bildirimi doğrulaması
+9. Vatandaşın kişisel gri pininin kırmızı genel pine dönüşmesi
+
+---
+
+## 26. MVP Kapsamı
+
+### Vatandaş Uygulaması
+
+- Android ve iOS uygulaması
+- Telefon numarasıyla örnek kayıt ve giriş
+- Harita ekranı
+- Kırmızı ünlem ve sarı saat pinleri
+- Kullanıcının kendi gri pinlerini görebilmesi
+- Uygulama kamerasıyla zorunlu anlık fotoğraf
+- Fotoğraf, açıklama ve konumla bildirim
+- Yapay zekâ destekli sınıflandırma
+- Risk seviyesi
+- İçerik güven skoru
+- Vatandaş güven skoru
+- Dinamik değerlendirme eşiği
+- Yüz ve plaka bulanıklaştırma
+- Haritada olmayan çalışmayı bildirme
+- Bildirim durumunu takip etme
+- Tahmini çözüm süresini görme
+
+### Belediye Paneli
+
+- Web tabanlı yönetim paneli
+- Bildirimleri listeleme ve filtreleme
+- Gri pinlerin belediye haritasında gösterilmesi
+- Kritik, yüksek, normal ve düşük güvenli inceleme kuyrukları
+- Turuncu kritik uyarı simgesi
+- Yapay zekâ analizini ve gerekçelerini görme
+- Orijinal fotoğrafa yetkili erişim
+- Kategori ve öncelik değiştirme
+- Bildirimi ilgili birime veya ilçe belediyesine yönlendirme
+- Bildirimi doğrulama veya reddetme
+- Gri pini genel kırmızı pine dönüştürme
+- Belediye çalışması oluşturma
+- Planlanan çalışmayı sarı pin olarak yayınlama
+- Basitleştirilmiş etki analizi
+- Bildirim durumunu ve tahmini süreyi güncelleme
+
+---
+
+## 27. MVP Dışında Kalanlar
+
+- Bütün kurumlarla tam gerçek zamanlı entegrasyon
+- Gelişmiş trafik tahmin modeli
+- Otomatik saha ekibi rotalama
+- Çağrı merkezi entegrasyonu
+- Çoklu dil desteği
+- Puan veya ödül sistemi
+- Başka vatandaşların bildirimlere destek vermesi
+- Galeriden fotoğraf seçimi
+- Doğrulanmamış gri pinlerin bütün vatandaşlara gösterilmesi
+- Yapay zekânın kesin sahte bildirim kararı vermesi
+- Yapay zekânın tek başına kalıcı hesap engeli uygulaması
+- Otomatik ceza veya yaptırım
+- Acil çağrı ve otomatik acil müdahale sistemi
+- Yarışmada gerçek vatandaş verisi kullanımı
+
+---
+
+## 28. Başarı Ölçütleri
+
+- Doğru birime yönlendirilen bildirim oranı
+- Ortalama ilk değerlendirme süresi
+- Ortalama çözüm süresi
+- Çözülen bildirim oranı
+- Yapay zekâ sınıflandırma doğruluğu
+- Riskli bildirimlerin yakalanma oranı
+- Kaçırılan kritik bildirim oranı
+- Belediye çalışanının değiştirdiği sınıflandırma oranı
+- Mükerrer bildirim tespit oranı
+- Kötüye kullanım tespit oranı
+- Hatalı kullanıcı kısıtlama oranı
+- Dinamik eşiklerin doğrulanmış bildirim oranına etkisi
+- Düşük güven kuyruğundaki gerçek olay oranı
+- Haritadaki olayların güncellik oranı
+- Vatandaş bildirimiyle bulunan çalışma sayısı
+- Yüz ve plaka bulanıklaştırma başarı oranı
+- Vatandaş memnuniyet puanı
+- Planlama analiziyle bulunan çalışma çakışmaları
+
+---
+
+## 29. Ürün İlkeleri
+
+- Vatandaşa açık ve anlaşılır bilgi sun.
+- Veri kaynağını ve güncellenme zamanını göster.
+- Doğrulanmış ve doğrulanmamış bilgileri ayır.
+- Doğrulanmamış bildirimi diğer vatandaşlara gösterme.
+- Kullanıcıya kendi bekleyen bildirimini göster.
+- Düşük güvenli bildirimi otomatik olarak reddetme.
+- Yüksek riskli bildirimi düşük güven nedeniyle gözden kaçırma.
+- Yeni kullanıcıyı otomatik olarak güvensiz kabul etme.
+- Vatandaş güven skorunu tek başına karar ölçütü yapma.
+- Yapay zekâ sonucunu kesin karar olarak sunma.
+- Kritik işlemlerde insan onayı kullan.
+- Bildirim durumunu vatandaştan gizleme.
+- Gerçekçi olmayan çözüm garantisi verme.
+- Harita bilgilerini yalnızca renkle ayırma.
+- Orijinal fotoğrafları yalnızca yetkili personele aç.
+- Kötüye kullanımda kademeli ve açıklanabilir önlemler uygula.
+- Kullanıcının hareket geçmişini toplama.
+- Kişisel verileri gerekli süreden uzun saklama.
+- Yarışma prototipinde gerçek vatandaş verisi kullanma.
+
+---
+
+## 30. Kesinleşen Ürün Kararları
+
+- Mobil uygulama Android ve iOS için geliştirilecektir.
+- Belediye paneli web tabanlı olacaktır.
+- Kullanıcı hesap açmadan haritayı inceleyebilecektir.
+- Bildirim için telefon numarası doğrulaması gerekecektir.
+- Anlık kamera fotoğrafı zorunlu olacaktır.
+- MVP’de galeriden fotoğraf seçilemeyecektir.
+- İBB anlık trafik yoğunluk verisi kullanılacaktır.
+- Erişilebilirse İSKİ arıza ve kesinti verileri kullanılacaktır.
+- API varsa sunucu üzerinden veri alınacaktır.
+- API yoksa CSV periyodik olarak veritabanına aktarılacaktır.
+- Eksik güncel bilgiler belediye panelinden girilecektir.
+- Aktif olaylar kırmızı ünlem piniyle gösterilecektir.
+- Planlanan olaylar sarı saat piniyle gösterilecektir.
+- Kullanıcı kendi bekleyen bildirimini gri pinle görecektir.
+- Gri pinler diğer vatandaşlara gösterilmeyecektir.
+- Belediye çalışanı dinamik eşiği geçen kayıtları gri pinle görecektir.
+- Yüksek veya kritik riskli kayıtlar düşük güvene rağmen öncelikli
+  incelemeye alınacaktır.
+- Kritik kayıtlar belediye ekranında turuncu uyarı simgesiyle gösterilecektir.
+- Sabit yüzde 70 eşiği yerine dinamik eşik kullanılacaktır.
+- Dinamik eşik kategori, risk, içerik güveni ve vatandaş güvenine göre
+  hesaplanacaktır.
+- Yeni kullanıcılar nötr vatandaş güven skoruyla başlayacaktır.
+- Düşük güvenli bildirimler otomatik olarak reddedilmeyecektir.
+- Belediye onayından sonra gri pin kırmızı pine dönüşecektir.
+- Yüzler, plakalar ve kişisel bilgiler otomatik bulanıklaştırılacaktır.
+- Orijinal fotoğrafı yalnızca yetkili personel görebilecektir.
+- Vatandaşlar diğer bildirimlere destek veremeyecektir.
+- Bağımsız benzer bildirimler sistem tarafından birleştirilebilecektir.
+- Canlı kullanıcı konumu kalıcı olarak saklanmayacaktır.
+- Yalnızca bildirilen sorunun konumu kaydedilecektir.
+- Bildirimlerin ilk kurumsal alıcısı İBB olacaktır.
+- İBB gerektiğinde bildirimi ilçe belediyesine yönlendirecektir.
+- Aynı takip numarası korunacaktır.
+- Çözüm süresi tahmini aralık olarak gösterilecektir.
+- Sabit günlük vatandaş bildirim kotası olmayacaktır.
+- Teknik hız sınırları ve kötüye kullanım analizi uygulanacaktır.
+- Yapay zekâ nihai karar verici olmayacaktır.
+- Uygulama acil çağrı sistemi olmayacaktır.
+- Yarışmada sentetik veya anonimleştirilmiş veri kullanılacaktır.
+- Kişisel veriler gerekli süre sonunda silinecek, yok edilecek veya
+  anonimleştirilecektir.
+
+---
+
+## 31. Kalan Açık Sorular
+
+- Uygulamanın kesin adı ne olacaktır?
+- Mobil uygulamada hangi teknoloji kullanılacaktır?
+- Telefon doğrulaması için hangi SMS hizmeti kullanılacaktır?
+- İBB veri kaynaklarının kesin API adresleri nelerdir?
+- Belediye çalışanlarının rol ve yetki seviyeleri nasıl belirlenecektir?
+- Tahmini çözüm süresi için yeterli geçmiş veri bulunabilecek midir?
+- Dinamik eşiklerin ağırlıkları nasıl hesaplanacaktır?
+- Pilot değerlendirmede kaç örnek bildirim kullanılacaktır?
+- Vatandaş güven skorunda eski olayların etkisi hangi hızla azalacaktır?
+- Gerçek uygulamadaki kesin veri saklama süreleri İBB tarafından nasıl
+  belirlenecektir?

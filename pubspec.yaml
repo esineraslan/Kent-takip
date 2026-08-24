@@ -1,0 +1,24 @@
+name: kent_takip_workspace
+publish_to: none
+environment:
+  sdk: ">=3.13.0 <4.0.0"
+workspace:
+  - apps/kent_takip_app
+  - apps/demo_server
+  - packages/kent_takip_application
+  - packages/kent_takip_domain
+  - packages/kent_takip_contracts
+  - packages/kent_takip_persistence
+
+dependencies:
+  kent_takip_application:
+    path: packages/kent_takip_application
+  kent_takip_contracts:
+    path: packages/kent_takip_contracts
+  kent_takip_domain:
+    path: packages/kent_takip_domain
+  kent_takip_persistence:
+    path: packages/kent_takip_persistence
+
+dev_dependencies:
+  flutter_lints: 6.0.0

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "scope": "Municipal Web Panel W-00..W-10",
+  "commonStates": [
+    "loading",
+    "content",
+    "empty",
+    "offline_with_cache",
+    "recoverable_error",
+    "blocking_error"
+  ],
+  "screens": [
+    {
+      "id": "W-00",
+      "name": "Kurumsal giriş",
+      "implementation": "apps/kent_takip_app/lib/src/ui/screens/auth_screens.dart",
+      "states": ["content", "recoverable_error", "blocking_error"],
+      "notes": "Hata kimlik/hesap varlığını ifşa etmez; MFA ayrı güvenli adım olarak işlenir."
+    },
+    {
+      "id": "W-01",
+      "name": "Ana panel",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/staff_operations_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"]
+    },
+    {
+      "id": "W-02",
+      "name": "İnceleme kuyrukları",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/staff_operations_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"],
+      "notes": "Offline cache personel için salt-okunurdur; mutation eylemleri kapatılır."
+    },
+    {
+      "id": "W-03",
+      "name": "Bildirim inceleme ayrıntısı",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/staff_operations_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"],
+      "notes": "Lease/stale revision ve yetkisiz orijinal medya hataları güvenli durum olarak gösterilir."
+    },
+    {
+      "id": "W-04",
+      "name": "Belediye haritası",
+      "implementation": "apps/kent_takip_app/lib/src/ui/map/map_experience.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"],
+      "notes": "Harita kullanılamadığında aynı filtreleri kullanan erişilebilir liste eşdeğeri korunur."
+    },
+    {
+      "id": "W-05",
+      "name": "Çalışma planlama",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/field_planning_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"],
+      "notes": "Offline personel mutation kapalıdır; mevcut taslak okunabilir ancak publish edilemez."
+    },
+    {
+      "id": "W-06",
+      "name": "Etki analizi",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/field_planning_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"]
+    },
+    {
+      "id": "W-07",
+      "name": "Yayınlama kontrolü",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/field_planning_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"],
+      "notes": "Public preview insan onayı ve online mutation capability olmadan yayın eylemi kapalıdır."
+    },
+    {
+      "id": "W-08",
+      "name": "Birim görevleri ve saha çözümü",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/field_planning_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"]
+    },
+    {
+      "id": "W-09",
+      "name": "Veri kaynakları",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/administration_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"],
+      "notes": "Fresh/stale/unavailable/manual durumları renk dışında ikon ve metinle de ayrılır."
+    },
+    {
+      "id": "W-10",
+      "name": "Kullanıcı, rol ve denetim",
+      "implementation": "apps/kent_takip_app/lib/src/ui/staff/administration_screens.dart",
+      "states": ["loading", "content", "empty", "offline_with_cache", "recoverable_error", "blocking_error"],
+      "notes": "Kritik yetki değişiklikleri ikinci onay ister; offline cache salt-okunurdur."
+    }
+  ],
+  "sharedStateImplementation": "apps/kent_takip_app/lib/src/ui/design/states.dart",
+  "widgetTest": "apps/kent_takip_app/test/wp22/state_matrix_test.dart",
+  "semanticTest": "apps/kent_takip_app/test/wp22/semantic_snapshot_test.dart"
+}

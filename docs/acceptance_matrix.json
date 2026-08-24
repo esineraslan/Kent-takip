@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "E2E-01",
+      "name": "Misafir haritası",
+      "tests": [
+        "apps/kent_takip_app/integration_test/wp04_auth_shell_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-02",
+      "name": "Citizen telefon + OTP",
+      "tests": [
+        "apps/kent_takip_app/integration_test/wp04_auth_shell_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-03",
+      "name": "Standart report",
+      "tests": [
+        "apps/kent_takip_app/integration_test/wp06_walking_skeleton_test.dart",
+        "packages/kent_takip_application/test/walking_skeleton_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-04",
+      "name": "Diğer citizen gizliliği",
+      "tests": [
+        "packages/kent_takip_application/test/walking_skeleton_test.dart",
+        "apps/demo_server/test/server_contract_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-05",
+      "name": "Staff doğrulama",
+      "tests": [
+        "apps/kent_takip_app/integration_test/wp06_walking_skeleton_test.dart",
+        "packages/kent_takip_application/test/walking_skeleton_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-06",
+      "name": "Kritik signal",
+      "tests": [
+        "packages/kent_takip_application/test/wp13_wp14_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-07",
+      "name": "Staff ret",
+      "tests": [
+        "packages/kent_takip_application/test/wp13_wp14_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-08",
+      "name": "Merge",
+      "tests": [
+        "packages/kent_takip_application/test/wp13_wp14_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-09",
+      "name": "Ek bilgi",
+      "tests": [
+        "packages/kent_takip_application/test/wp13_wp14_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-10",
+      "name": "Unit → field → solution",
+      "tests": [
+        "packages/kent_takip_application/test/wp15_wp16_test.dart",
+        "apps/demo_server/test/server_contract_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-11",
+      "name": "Work plan → publish",
+      "tests": [
+        "packages/kent_takip_application/test/wp15_wp16_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-12",
+      "name": "DemoClock ilerlet",
+      "tests": [
+        "packages/kent_takip_application/test/wp15_wp16_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-13",
+      "name": "AI timeout",
+      "tests": [
+        "packages/kent_takip_application/test/wp08_wp12_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-14",
+      "name": "Blur failure / original media guard",
+      "tests": [
+        "packages/kent_takip_application/test/wp08_wp12_test.dart",
+        "apps/demo_server/test/server_contract_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-15",
+      "name": "Offline draft/retry",
+      "tests": [
+        "packages/kent_takip_application/test/offline_draft_test.dart",
+        "apps/kent_takip_app/test/wp21/remote_resilience_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-16",
+      "name": "Camera/location denied",
+      "tests": [
+        "packages/kent_takip_application/test/fake_gateways_test.dart",
+        "apps/kent_takip_app/test/wp20/localization_accessibility_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-17",
+      "name": "Unauthorized staff route",
+      "tests": [
+        "apps/kent_takip_app/test/route_policy_test.dart",
+        "apps/demo_server/test/server_contract_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-18",
+      "name": "Corrupt active snapshot",
+      "tests": [
+        "packages/kent_takip_persistence/test/wp21_recovery_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-19",
+      "name": "Shared iki client / revision conflict",
+      "tests": [
+        "apps/demo_server/test/server_contract_test.dart",
+        "apps/kent_takip_app/test/wp21/remote_resilience_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-20",
+      "name": "Reset",
+      "tests": [
+        "packages/kent_takip_persistence/test/snapshot_store_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-21",
+      "name": "Kötüye kullanım/kısıtlama/itiraz",
+      "tests": [
+        "packages/kent_takip_application/test/wp19_security_test.dart",
+        "packages/kent_takip_application/test/wp17_wp18_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-22",
+      "name": "KVKK ve hesap silme",
+      "tests": [
+        "packages/kent_takip_application/test/wp17_wp18_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-23",
+      "name": "UrbanIncident altında çoklu kaynak/report",
+      "tests": [
+        "packages/kent_takip_application/test/wp22_acceptance_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-24",
+      "name": "153 external ref mock sync",
+      "tests": [
+        "packages/kent_takip_application/test/wp17_wp18_test.dart",
+        "packages/kent_takip_application/test/wp22_acceptance_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-25",
+      "name": "Structured corroboration",
+      "tests": [
+        "packages/kent_takip_application/test/wp08_wp12_test.dart",
+        "packages/kent_takip_application/test/wp22_acceptance_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-26",
+      "name": "Fotoğrafsız erişilebilir bildirim rotası",
+      "tests": [
+        "apps/kent_takip_app/integration_test/wp06_walking_skeleton_test.dart",
+        "apps/kent_takip_app/test/wp20/localization_accessibility_test.dart",
+        "apps/kent_takip_app/test/wp22/state_matrix_test.dart",
+        "apps/kent_takip_app/test/wp22/semantic_snapshot_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-27",
+      "name": "Çözüm onayı / reopen review",
+      "tests": [
+        "packages/kent_takip_application/test/wp15_wp16_test.dart",
+        "packages/kent_takip_application/test/wp22_acceptance_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-28",
+      "name": "Resmî salt-okunur uyarı",
+      "tests": [
+        "packages/kent_takip_application/test/wp22_acceptance_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-29",
+      "name": "Role-specific AI visibility",
+      "tests": [
+        "packages/kent_takip_application/test/wp08_wp12_test.dart",
+        "packages/kent_takip_application/test/wp22_acceptance_test.dart"
+      ]
+    },
+    {
+      "id": "E2E-30",
+      "name": "Real-schema source adapter",
+      "tests": [
+        "packages/kent_takip_application/test/wp17_wp18_test.dart",
+        "packages/kent_takip_application/test/wp22_acceptance_test.dart"
+      ]
+    }
+  ]
+}

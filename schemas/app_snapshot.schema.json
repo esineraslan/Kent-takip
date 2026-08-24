@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kent-takip.example/schemas/app_snapshot.schema.json",
+  "title": "İBB Kent Takip AppSnapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "seedVersion", "revision", "updatedAt", "checksum", "payload"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "seedVersion": {"type": "string", "minLength": 1},
+    "revision": {"type": "integer", "minimum": 0},
+    "updatedAt": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "checksum": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "payload": {"$ref": "#/$defs/payload"}
+  },
+  "$defs": {
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["latitude", "longitude", "coordinateSystem"],
+      "properties": {
+        "latitude": {"type": "number", "minimum": -90, "maximum": 90},
+        "longitude": {"type": "number", "minimum": -180, "maximum": 180},
+        "coordinateSystem": {"const": "EPSG:4326"}
+      }
+    },
+    "opaqueEntity": {
+      "type": "object",
+      "minProperties": 1,
+      "anyOf": [
+        {"required": ["id"]},
+        {"required": ["sourceId"]}
+      ]
+    },
+    "account": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role", "permissions", "unitId", "deletionRequested"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "role": {"enum": ["guest", "citizen", "reviewer", "unit_officer", "planner", "system_admin", "demo_supervisor"]},
+        "permissions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "unitId": {"type": ["string", "null"]},
+        "deletionRequested": {"type": "boolean"}
+      }
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "trackingNumber", "ownerId", "status", "category", "location", "createdAt", "updatedAt", "clientMutationId", "mediaIds", "analysisId", "linkedIncidentId", "manualReviewRequired", "riskLevel", "humanDecisionReason", "resolutionExplanation", "resolvedAt", "resolutionPublicMediaRef"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "trackingNumber": {"type": "string", "pattern": "^KT-[0-9]{4}-[0-9]{6}$"},
+        "ownerId": {"type": "string", "minLength": 1},
+        "status": {"enum": ["draft", "received", "ai_review", "ibb_review", "critical_review", "manual_review", "additional_info_required", "assigned_unit", "field_assigned", "in_progress", "resolved", "merged", "out_of_scope", "rejected"]},
+        "category": {"type": "string", "minLength": 1},
+        "location": {"$ref": "#/$defs/location"},
+        "createdAt": {"type": "string", "format": "date-time", "pattern": "Z$"},
+        "updatedAt": {"type": "string", "format": "date-time", "pattern": "Z$"},
+        "clientMutationId": {"type": "string", "minLength": 1},
+        "mediaIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "analysisId": {"type": ["string", "null"]},
+        "linkedIncidentId": {"type": ["string", "null"]},
+        "manualReviewRequired": {"type": "boolean"},
+        "riskLevel": {"enum": ["low", "medium", "high", "critical_signal", "unknown"]},
+        "humanDecisionReason": {"type": ["string", "null"]},
+        "resolutionExplanation": {"type": ["string", "null"]},
+        "resolvedAt": {"type": ["string", "null"]},
+        "resolutionPublicMediaRef": {"type": ["string", "null"]}
+      }
+    },
+    "incident": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "category", "location", "reportIds", "sourceRecordIds", "createdAt", "updatedAt", "responsibleUnitId", "resolutionExplanation", "resolvedAt"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["pending_verification", "verified_active", "resolved", "archived"]},
+        "category": {"type": "string", "minLength": 1},
+        "location": {"$ref": "#/$defs/location"},
+        "reportIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "sourceRecordIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "createdAt": {"type": "string", "format": "date-time", "pattern": "Z$"},
+        "updatedAt": {"type": "string", "format": "date-time", "pattern": "Z$"},
+        "responsibleUnitId": {"type": ["string", "null"]},
+        "resolutionExplanation": {"type": ["string", "null"]},
+        "resolvedAt": {"type": ["string", "null"]}
+      }
+    },
+    "work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "category", "location", "startsAt", "expectedEndsAt", "responsibleUnitId", "explanation"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["draft", "impact_ready", "review_ready", "published_planned", "active", "completed", "cancelled"]},
+        "category": {"type": "string", "minLength": 1},
+        "location": {"$ref": "#/$defs/location"},
+        "startsAt": {"type": "string", "format": "date-time", "pattern": "Z$"},
+        "expectedEndsAt": {"type": "string", "format": "date-time", "pattern": "Z$"},
+        "responsibleUnitId": {"type": "string", "minLength": 1},
+        "explanation": {"type": "string", "minLength": 1}
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "privacyStatus", "originalRef", "publicRef", "mimeType"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "privacyStatus": {"enum": ["pending", "processing", "safe", "manual_review_required", "failed"]},
+        "originalRef": {"type": ["string", "null"]},
+        "publicRef": {"type": ["string", "null"]},
+        "mimeType": {"type": "string", "minLength": 1}
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "categoryConfidence", "duplicateConfidence", "reasonCodes", "modelVersion", "configVersion", "createdAt"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["complete", "partial", "unavailable", "timeout", "invalid_response"]},
+        "categoryConfidence": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+        "duplicateConfidence": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+        "reasonCodes": {"type": "array", "items": {"type": "string"}},
+        "modelVersion": {"type": "string", "minLength": 1},
+        "configVersion": {"type": "string", "minLength": 1},
+        "createdAt": {"type": "string", "format": "date-time", "pattern": "Z$"}
+      }
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accounts", "reports", "incidents", "municipalWorks", "media", "analyses", "sourceAuthorities", "sourceRecords", "dataSourceHealth", "corroborations", "timeline", "notifications", "auditEvents", "privacyRequests", "restrictions", "demoScenarios"],
+      "properties": {
+        "accounts": {"type": "array", "items": {"$ref": "#/$defs/account"}},
+        "reports": {"type": "array", "items": {"$ref": "#/$defs/report"}},
+        "incidents": {"type": "array", "items": {"$ref": "#/$defs/incident"}},
+        "municipalWorks": {"type": "array", "items": {"$ref": "#/$defs/work"}},
+        "media": {"type": "array", "items": {"$ref": "#/$defs/media"}},
+        "analyses": {"type": "array", "items": {"$ref": "#/$defs/analysis"}},
+        "sourceAuthorities": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "sourceRecords": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "dataSourceHealth": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "corroborations": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "timeline": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "notifications": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "auditEvents": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "privacyRequests": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "restrictions": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}},
+        "demoScenarios": {"type": "array", "items": {"$ref": "#/$defs/opaqueEntity"}}
+      }
+    }
+  }
+}

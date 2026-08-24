@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "seedVersion": "2026.08.17.2",
+  "revision": 1,
+  "updatedAt": "2026-08-17T08:00:00.000Z",
+  "checksum": "sha256:21dc27ab91e20cefda362d58d9ab18dc9bb1ab337aaf0f408b6da4d7d91a06ee",
+  "payload": {
+    "accounts": [
+      {
+        "id": "usr_citizen_demo_001",
+        "role": "citizen",
+        "permissions": ["view_public_map", "submit_report", "view_own_report"],
+        "unitId": null,
+        "deletionRequested": false
+      },
+      {
+        "id": "usr_citizen_demo_002",
+        "role": "citizen",
+        "permissions": ["view_public_map", "submit_report", "view_own_report"],
+        "unitId": null,
+        "deletionRequested": false
+      },
+      {
+        "id": "usr_citizen_demo_003",
+        "role": "citizen",
+        "permissions": ["view_public_map", "submit_report", "view_own_report"],
+        "unitId": null,
+        "deletionRequested": false
+      },
+      {
+        "id": "usr_supervisor_demo_001",
+        "role": "demo_supervisor",
+        "permissions": [
+          "view_public_map",
+          "view_review_queue",
+          "view_original_media",
+          "review_report",
+          "route_report",
+          "merge_report",
+          "manage_field_work",
+          "manage_municipal_work",
+          "manage_sources",
+          "manage_users",
+          "view_audit",
+          "manage_privacy_requests",
+          "reset_demo"
+        ],
+        "unitId": "unit_road_maintenance",
+        "deletionRequested": false
+      }
+    ],
+    "reports": [
+      {
+        "id": "rpt_demo_0001",
+        "trackingNumber": "KT-2026-000001",
+        "ownerId": "usr_citizen_demo_001",
+        "status": "ibb_review",
+        "category": "road_surface_damage",
+        "location": {
+          "latitude": 41.0292,
+          "longitude": 28.9744,
+          "coordinateSystem": "EPSG:4326"
+        },
+        "createdAt": "2026-08-17T07:40:00.000Z",
+        "updatedAt": "2026-08-17T07:45:00.000Z",
+        "clientMutationId": "mutation_demo_0001",
+        "mediaIds": ["media_demo_public_0001"],
+        "analysisId": "analysis_demo_0001",
+        "linkedIncidentId": null,
+        "manualReviewRequired": false,
+        "riskLevel": "medium",
+        "humanDecisionReason": null,
+        "resolutionExplanation": null,
+        "resolvedAt": null,
+        "resolutionPublicMediaRef": null
+      }
+    ],
+    "incidents": [
+      {
+        "id": "inc_demo_0001",
+        "status": "verified_active",
+        "category": "water_leak",
+        "location": {
+          "latitude": 41.0082,
+          "longitude": 28.9784,
+          "coordinateSystem": "EPSG:4326"
+        },
+        "reportIds": [],
+        "sourceRecordIds": ["src_record_demo_0001"],
+        "createdAt": "2026-08-17T06:30:00.000Z",
+        "updatedAt": "2026-08-17T07:30:00.000Z",
+        "responsibleUnitId": "unit_water_operations",
+        "resolutionExplanation": null,
+        "resolvedAt": null
+      }
+    ],
+    "municipalWorks": [
+      {
+        "id": "work_demo_0001",
+        "status": "published_planned",
+        "category": "road_maintenance",
+        "location": {
+          "latitude": 41.0211,
+          "longitude": 29.0041,
+          "coordinateSystem": "EPSG:4326"
+        },
+        "startsAt": "2026-08-18T06:00:00.000Z",
+        "expectedEndsAt": "2026-08-18T12:00:00.000Z",
+        "responsibleUnitId": "unit_road_maintenance",
+        "explanation": "Synthetic planned road maintenance"
+      }
+    ],
+    "media": [
+      {
+        "id": "media_demo_public_0001",
+        "privacyStatus": "safe",
+        "originalRef": "asset://demo_media/original/road_damage_demo.bin",
+        "publicRef": "asset://demo_media/public/road_damage_demo.bin",
+        "mimeType": "application/octet-stream"
+      }
+    ],
+    "analyses": [
+      {
+        "id": "analysis_demo_0001",
+        "status": "complete",
+        "categoryConfidence": 91,
+        "duplicateConfidence": 22,
+        "reasonCodes": ["surface_damage_visible", "location_context_consistent"],
+        "modelVersion": "demo-deterministic-1",
+        "configVersion": "2026.08.17.1",
+        "createdAt": "2026-08-17T07:44:00.000Z"
+      }
+    ],
+    "sourceAuthorities": [
+      {
+        "id": "authority_demo_ibb",
+        "displayName": "Synthetic IBB authority",
+        "rank": "ibb_approved",
+        "officialAlertAuthority": false
+      }
+    ],
+    "sourceRecords": [
+      {
+        "id": "src_record_demo_0001",
+        "sourceId": "water_events_fixture",
+        "externalId": "demo-water-0001",
+        "authorityId": "authority_demo_ibb",
+        "health": "fresh",
+        "sourceUpdatedAt": "2026-08-17T07:25:00.000Z",
+        "ingestedAt": "2026-08-17T07:26:00.000Z",
+        "licenseId": "internal-synthetic",
+        "attribution": "Synthetic demo fixture"
+      }
+    ],
+    "dataSourceHealth": [
+      {
+        "sourceId": "water_events_fixture",
+        "health": "fresh",
+        "lastAttemptAt": "2026-08-17T07:26:00.000Z",
+        "lastSuccessAt": "2026-08-17T07:26:00.000Z"
+      }
+    ],
+    "corroborations": [],
+    "timeline": [],
+    "notifications": [],
+    "auditEvents": [],
+    "privacyRequests": [],
+    "restrictions": [],
+    "demoScenarios": [
+      {
+        "id": "scenario_standard",
+        "aiMode": "deterministic",
+        "privacyMode": "safe",
+        "connectivity": "online"
+      }
+    ]
+  }
+}

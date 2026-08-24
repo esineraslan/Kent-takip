@@ -1,0 +1,28 @@
+# Dart / Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+coverage/
+pubspec_overrides.yaml
+
+# IDE / platform output
+.idea/
+.vscode/
+*.iml
+android/.gradle/
+ios/Pods/
+ios/.symlinks/
+
+# Demo runtime and private media
+runtime/
+*.tmp
+*.bak
+apps/kent_takip_app/demo_runtime/
+apps/kent_takip_app/assets/demo_media/generated/
+
+# Local reports
+artifacts/
+*.log
+

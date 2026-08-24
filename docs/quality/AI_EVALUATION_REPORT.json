@@ -1,0 +1,17 @@
+{
+  "fixtureVersion": "wp10-2026.08",
+  "caseCount": 7,
+  "validCaseCount": 6,
+  "categoryAccuracy": 0.833333,
+  "privacyFalseNegativeRate": 0.0,
+  "duplicateRecall": 1.0,
+  "validResponseRate": 0.857143,
+  "gates": {
+    "categoryAccuracyMin": 0.8,
+    "privacyFalseNegativeRateMax": 0.0,
+    "duplicateRecallMin": 0.8,
+    "validResponseRateMin": 0.8
+  },
+  "passed": true,
+  "note": "Deterministic demo fixture; production model approval evidence değildir."
+}

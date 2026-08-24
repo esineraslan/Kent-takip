@@ -1,0 +1,8 @@
+{
+  "status": "blocked_pending_approved_fonts_and_design_review",
+  "baselineCount": 0,
+  "expectedBaselineCount": 16,
+  "reviewedAt": null,
+  "reviewer": null,
+  "note": "Golden PNG dosyaları gerçek Flutter rasterizasyonu ve onaylı kurumsal fontlarla üretilmeden approved yapılamaz."
+}

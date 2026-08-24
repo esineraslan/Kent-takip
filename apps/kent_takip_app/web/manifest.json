@@ -1,0 +1,11 @@
+{
+  "name": "İBB Kent Takip",
+  "short_name": "Kent Takip",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F4F7FB",
+  "theme_color": "#003378",
+  "description": "Sentetik veri kullanan İBB Kent Takip demosu",
+  "orientation": "any"
+}
+

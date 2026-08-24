@@ -1,0 +1,40 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    invalid_use_of_visible_for_testing_member: error
+    todo: error
+    unused_import: error
+    unused_local_variable: error
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
+
+linter:
+  rules:
+    always_declare_return_types: true
+    always_use_package_imports: true
+    avoid_catches_without_on_clauses: true
+    avoid_dynamic_calls: true
+    avoid_print: true
+    cascade_invocations: true
+    close_sinks: true
+    directives_ordering: true
+    discarded_futures: true
+    noop_primitive_operations: true
+    only_throw_errors: true
+    prefer_final_locals: true
+    require_trailing_commas: true
+    sort_constructors_first: true
+    sort_unnamed_constructors_first: true
+    unawaited_futures: true
+    unnecessary_lambdas: true

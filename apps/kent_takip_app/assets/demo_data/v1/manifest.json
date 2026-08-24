@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "seedVersion": "2026.08.17.2",
+  "synthetic": true,
+  "files": ["snapshot.json"],
+  "mediaPolicy": "No real person, phone, credential, plate or exact home address.",
+  "license": "Internal synthetic demo fixture"
+}

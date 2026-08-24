@@ -1,0 +1,1119 @@
+# Kullanıcı Akışları
+
+## 1. Belgenin Amacı
+
+Bu belge, İstanbul Kent Sorunları Yönetim Platformu içindeki vatandaş
+ve belediye kullanıcılarının gerçekleştireceği temel işlemleri tanımlar.
+
+Her kullanıcı akışında:
+
+- Başlangıç koşulları
+- Kullanıcı adımları
+- Sistem davranışları
+- Başarılı sonuç
+- Hata ve istisna durumları
+- Yapay zekâ ve insan karar noktaları
+
+açıklanır.
+
+---
+
+## 2. Kullanıcı Rolleri
+
+### 2.1 Misafir Kullanıcı
+
+Hesap oluşturmadan uygulamayı kullanan kişidir.
+
+Misafir kullanıcı:
+
+- Genel haritayı görüntüleyebilir.
+- Aktif ve planlanan olayları inceleyebilir.
+- Konum izni vererek yakınındaki olayları görebilir.
+- İlçe, mahalle veya adres araması yapabilir.
+
+Misafir kullanıcı:
+
+- Sorun bildirimi gönderemez.
+- “Bildirimlerim” bölümüne erişemez.
+- Kişisel gri pin oluşturamaz.
+
+Bu işlemleri yapmak istediğinde telefon numarasıyla giriş yapması istenir.
+
+### 2.2 Kayıtlı Vatandaş
+
+Telefon numarası doğrulanmış kullanıcıdır.
+
+Kayıtlı vatandaş:
+
+- Genel haritayı kullanabilir.
+- Uygulama kamerasıyla sorun bildirebilir.
+- Haritada olmayan çalışmayı bildirebilir.
+- Kendi doğrulama bekleyen bildirimlerini gri pin olarak görebilir.
+- Bildirimlerinin durumunu takip edebilir.
+- Belediye tarafından istenen ek bilgileri gönderebilir.
+- Durum değişikliği bildirimlerini alabilir.
+- Hesabını ve izinlerini yönetebilir.
+
+### 2.3 İBB Değerlendirme Personeli
+
+Vatandaş bildirimlerini ilk aşamada değerlendiren yetkili kullanıcıdır.
+
+Bu kullanıcı:
+
+- Bildirimleri inceleme kuyruklarında görüntüleyebilir.
+- Dinamik güven ve risk değerlendirmesini inceleyebilir.
+- Belediye haritasındaki gri ve turuncu uyarı pinlerini görebilir.
+- Yapay zekâ kategori ve birim önerisini kontrol edebilir.
+- Bildirimi doğrulayabilir veya reddedebilir.
+- Kategori ve önceliği değiştirebilir.
+- İlgili İBB birimine veya ilçe belediyesine yönlendirebilir.
+- Vatandaştan ek bilgi isteyebilir.
+- Benzer bildirimleri birleştirebilir.
+
+### 2.4 Belediye Birim Personeli
+
+Kendi birimine yönlendirilen bildirimleri yöneten kullanıcıdır.
+
+Bu kullanıcı:
+
+- Birimine atanmış bildirimleri görüntüleyebilir.
+- Saha ekibine görev atayabilir.
+- Çalışma durumunu güncelleyebilir.
+- Tahmini çözüm süresi belirleyebilir.
+- Çözüm açıklaması ve sonuç fotoğrafı ekleyebilir.
+- Yanlış yönlendirilmiş kaydı başka birime aktarabilir.
+
+### 2.5 Çalışma Planlama Personeli
+
+Belediye çalışmalarını sisteme ekleyen ve etki analizi yapan kullanıcıdır.
+
+Bu kullanıcı:
+
+- Yeni çalışma oluşturabilir.
+- Çalışma konumunu belirleyebilir.
+- Tarih ve tahmini süre girebilir.
+- Etki analizi çalıştırabilir.
+- Planlanan çalışmayı yayınlayabilir.
+- Çalışmanın durumunu güncelleyebilir.
+
+### 2.6 Sistem Yöneticisi
+
+Sistem yöneticisi:
+
+- Belediye çalışanı hesaplarını yönetebilir.
+- Kullanıcılara rol ve birim atayabilir.
+- Yetkileri değiştirebilir.
+- Denetim kayıtlarını inceleyebilir.
+- Veri kaynaklarının durumunu takip edebilir.
+- Dinamik eşik ayarlarını yetkisi dâhilinde yönetebilir.
+
+---
+
+# VATANDAŞ AKIŞLARI
+
+## 3. Uygulamanın İlk Açılışı
+
+### Başlangıç Koşulu
+
+Kullanıcı uygulamayı ilk kez açmıştır.
+
+### Ana Akış
+
+1. Açılış ekranı gösterilir.
+2. Uygulamanın temel amacı açıklanır.
+3. Uygulamanın acil çağrı hizmeti olmadığı belirtilir.
+4. Kısa KVKK aydınlatması gösterilir.
+5. Ayrıntılı aydınlatma metnine erişim bağlantısı sunulur.
+6. Kullanıcı genel harita ekranına yönlendirilir.
+7. Harita varsayılan olarak İstanbul genelini gösterir.
+8. Kullanıcı isterse konum izni verebilir.
+
+### Sonuç
+
+Kullanıcı hesap oluşturmadan genel haritayı inceleyebilir.
+
+### Kurallar
+
+- Konum izni uygulamanın açılması için zorunlu değildir.
+- Kamera izni yalnızca fotoğraf çekileceği zaman istenir.
+- Aydınlatma ve açık rıza aynı işlem olarak sunulmaz.
+- Zorunlu olmayan izinleri reddeden kullanıcı haritayı kullanmaya devam eder.
+
+---
+
+## 4. Konum İzni
+
+### Başlangıç Koşulu
+
+Kullanıcı “Konumuma Git” düğmesine basmıştır.
+
+### Ana Akış
+
+1. Uygulama konumun neden kullanılacağını açıklar.
+2. İşletim sistemi üzerinden konum izni istenir.
+3. Kullanıcı izin verirse mevcut konum haritada gösterilir.
+4. Harita kullanıcının bulunduğu bölgeye yakınlaştırılır.
+5. Yakındaki aktif ve planlanan olaylar yüklenir.
+6. Canlı konum yalnızca aktif kullanım sırasında geçici olarak kullanılır.
+
+### İzin Verilmezse
+
+1. Uygulama çalışmaya devam eder.
+2. İstanbul genel haritası gösterilir.
+3. Kullanıcı adres, ilçe veya mahalle arayabilir.
+4. Kullanıcı haritayı manuel olarak hareket ettirebilir.
+5. Sorun bildirirken konumu haritadan manuel seçebilir.
+
+### Kurallar
+
+- Arka planda sürekli konum takibi yapılmaz.
+- Kullanıcının hareket geçmişi oluşturulmaz.
+- Bildirimde kullanıcının hareket konumu değil, sorunun seçilen konumu saklanır.
+
+---
+
+## 5. Genel Haritayı Görüntüleme
+
+### Başlangıç Koşulu
+
+Kullanıcı ana harita ekranındadır.
+
+### Ana Akış
+
+1. Sistem görünür harita alanındaki olayları yükler.
+2. Kullanıcı haritayı yakınlaştırabilir veya uzaklaştırabilir.
+3. Kullanıcı farklı bir bölgeye geçebilir.
+4. Harita hareket ettirildiğinde yeni bölgedeki olaylar yüklenir.
+5. Kullanıcı olay türlerine göre filtreleme yapabilir.
+6. Kullanıcı bir pine dokunarak ayrıntıları açabilir.
+
+### Genel Haritada Gösterilen Pinler
+
+- Kırmızı ünlem: Belediye tarafından doğrulanmış aktif olay
+- Sarı saat: Belediye tarafından yayınlanmış planlanan olay
+
+Doğrulanmamış vatandaş bildirimleri diğer vatandaşların genel
+haritasında gösterilmez.
+
+### Filtreler
+
+- Aktif çalışmalar
+- Planlanan çalışmalar
+- Trafik
+- Yol çalışmaları
+- Altyapı çalışmaları
+- Su kesintileri
+- Elektrik kesintileri
+- Toplu taşıma aksamaları
+
+### Harita Boşsa
+
+Kullanıcıya şu mesaj gösterilir:
+
+> Bu bölgede seçili filtrelere uygun güncel bir kayıt bulunamadı.
+
+---
+
+## 6. Kişisel Haritayı Görüntüleme
+
+### Başlangıç Koşulu
+
+Kullanıcı hesabıyla giriş yapmıştır ve en az bir bildirim göndermiştir.
+
+### Ana Akış
+
+1. Kullanıcı harita ekranını açar.
+2. Genel kırmızı ve sarı pinler yüklenir.
+3. Kullanıcının kendi doğrulama bekleyen bildirimleri yüklenir.
+4. Bekleyen bildirimler yalnızca bu kullanıcıya gri soru işareti
+   pini olarak gösterilir.
+5. Kullanıcı kendi gri pinine dokunur.
+6. Bildirimin güncel durumu gösterilir.
+
+Gri pin üzerinde şu açıklama bulunur:
+
+> Bildiriminiz alındı — belediye doğrulaması bekleniyor.
+
+### Kurallar
+
+- Kullanıcı başka vatandaşların gri pinlerini göremez.
+- Diğer vatandaşlar bu kullanıcının gri pinini göremez.
+- Gri pin, yapay zekâ puanından bağımsız olarak bildirimi yapan
+  vatandaşın kendi haritasında gösterilir.
+- Gri pin resmî olarak doğrulanmış olay anlamına gelmez.
+
+---
+
+## 7. Pin Ayrıntısını Görüntüleme
+
+### Ana Akış
+
+1. Kullanıcı bir pine dokunur.
+2. Kısa bilgi kartı açılır.
+3. Kullanıcı ayrıntıları görüntüler.
+4. Sistem uygun alanları gösterir:
+   - Olay türü
+   - Doğrulama durumu
+   - Konum
+   - Sorumlu belediye birimi
+   - Başlangıç zamanı
+   - Tahmini bitiş zamanı
+   - Etkilenen alan
+   - Veri kaynağı
+   - Son güncellenme zamanı
+   - Varsa alternatif güzergâh
+   - Belediye açıklaması
+
+### Kullanıcının Kendi Gri Pini
+
+Kullanıcı kendi gri pininde:
+
+- Takip numarasını
+- Gönderim zamanını
+- Bildirim durumunu
+- Belediye incelemesinin devam edip etmediğini
+- Ek bilgi gerekip gerekmediğini
+
+görebilir.
+
+Yapay zekâ güven skoru vatandaşa kesin doğruluk puanı olarak
+gösterilmek zorunda değildir.
+
+---
+
+## 8. Telefon Numarasıyla Kayıt ve Giriş
+
+### Başlangıç Koşulu
+
+Misafir kullanıcı “Sorun Bildir” veya “Bildirimlerim” bölümünü açmıştır.
+
+### Ana Akış
+
+1. Giriş yapılması gerektiği açıklanır.
+2. Kullanıcı telefon numarasını girer.
+3. KVKK aydınlatma metni gösterilir.
+4. Tek kullanımlık doğrulama kodu gönderilir.
+5. Kullanıcı kodu girer.
+6. Kod doğrulanır.
+7. Hesap varsa oturum açılır.
+8. Hesap yoksa yeni hesap oluşturulur.
+9. Kullanıcı başlatmak istediği işleme geri yönlendirilir.
+
+### Hatalı Kod
+
+1. Kodun hatalı olduğu bildirilir.
+2. Kullanıcı tekrar deneyebilir.
+3. Çok sayıda başarısız denemede geçici bekleme uygulanır.
+
+### Kod Gelmezse
+
+- Telefon numarası kontrol edilebilir.
+- Belirli süre sonra yeni kod istenebilir.
+- Kullanıcı daha sonra tekrar deneyebilir.
+
+---
+
+## 9. Yeni Sorun Bildirme
+
+### Başlangıç Koşulları
+
+- Kullanıcı giriş yapmıştır.
+- Hesabında aktif gönderim engeli bulunmamaktadır.
+
+### Ana Akış
+
+1. Kullanıcı “Sorun Bildir” menüsünü açar.
+2. Bir kategori seçer veya “Emin Değilim” seçeneğini kullanır.
+3. “Fotoğraf Çek” düğmesine basar.
+4. Kamera izni istenir.
+5. Kullanıcı uygulama kamerasıyla anlık fotoğraf çeker.
+6. Fotoğraf kalite kontrolünden geçirilir.
+7. Konum izni varsa sorunun konumu önerilir.
+8. Kullanıcı konumu kontrol eder ve gerekirse değiştirir.
+9. Kullanıcı kısa bir açıklama yazar.
+10. Yapay zekâ ön analizi başlatılır.
+11. Kullanıcıya gönderim öncesi kontrol ekranı gösterilir.
+12. Kullanıcı bildirimi gönderir.
+13. Bildirim İBB sistemine iletilir.
+14. Kullanıcıya takip numarası verilir.
+15. Bildirim “Bildirimlerim” ekranına eklenir.
+16. Kullanıcı bildirimi kendi haritasında gri pin olarak görür.
+
+### Kamera İzni Verilmezse
+
+Fotoğraf zorunlu olduğu için bildirim gönderilemez.
+
+Kullanıcıya:
+
+- Kamera izninin neden gerekli olduğu açıklanır.
+- Sistem ayarlarına gitme seçeneği sunulur.
+- Haritaya dönme seçeneği sunulur.
+
+### Fotoğraf Kalitesizse
+
+Kullanıcıdan tekrar fotoğraf çekmesi istenir.
+
+Olası nedenler:
+
+- Fotoğrafın çok karanlık olması
+- Fotoğrafın aşırı bulanık olması
+- Sorunun görünür olmaması
+- İlgisiz içerik tespit edilmesi
+
+### İnternet Bağlantısı Yoksa
+
+1. Kullanıcıya bağlantı hatası gösterilir.
+2. Bildirim geçici taslak olarak saklanabilir.
+3. Kullanıcı bağlantı geldiğinde tekrar gönderebilir.
+4. Aynı bildirimin iki kez oluşması engellenir.
+
+---
+
+## 10. Fotoğraf Analizi ve Bulanıklaştırma
+
+### Ana Akış
+
+1. Sistem fotoğrafın kalitesini kontrol eder.
+2. Olası sorun türünü belirler.
+3. Açıklama ile fotoğrafın uyumunu inceler.
+4. Konum ve zamanla olası tutarlılığı değerlendirir.
+5. Benzer fotoğraf veya bildirimleri arar.
+6. Uygunsuz içerik kontrolü yapar.
+7. Yüzleri, plakaları ve diğer kişisel bilgileri tespit eder.
+8. Halka açık kullanım için bulanıklaştırılmış kopya oluşturur.
+9. Orijinal fotoğrafı korumalı alana kaydeder.
+10. Analiz sonucu bildirim kaydına eklenir.
+
+### Bulanıklaştırma Başarısızsa
+
+1. Fotoğraf halka açık olarak yayınlanmaz.
+2. Bildirim belediye çalışanının incelemesine gönderilir.
+3. Yetkili personel gerekirse fotoğrafı manuel olarak kontrol eder.
+4. Güvenli kopya oluşturulmadan fotoğraf genel haritada gösterilmez.
+
+### Kurallar
+
+- Orijinal fotoğrafı yalnızca yetkili personel görebilir.
+- Orijinal fotoğrafa erişim kayıt altına alınır.
+- Güven skoru yüksek olsa bile yayın güvenliği kontrolü ayrıca yapılır.
+
+---
+
+## 11. Dinamik Değerlendirme Akışı
+
+### Başlangıç Koşulu
+
+Fotoğraf, açıklama ve konum bilgileri tamamlanmıştır.
+
+### Sistem Adımları
+
+1. İçerik güven skoru hesaplanır.
+2. Olayın risk seviyesi belirlenir.
+3. Vatandaş güven skoru alınır.
+4. Fotoğraf, açıklama, konum ve zaman tutarlılığı incelenir.
+5. Yakındaki benzer belediye kayıtları aranır.
+6. Yakındaki bağımsız vatandaş bildirimleri aranır.
+7. Kötüye kullanım sinyalleri kontrol edilir.
+8. Kategoriye ait temel eşik belirlenir.
+9. Vatandaş güven skoru temel eşiği sınırlı ölçüde değiştirir.
+10. Olay riski değerlendirme önceliğini belirler.
+11. Bildirim uygun belediye kuyruğuna yerleştirilir.
+
+### Değerlendirme Çıktıları
+
+#### İçerik Güven Skoru
+
+Fotoğrafın, açıklamanın, konumun ve zamanın tutarlılığını gösterir.
+
+Değer aralığı: 0–100
+
+#### Olay Risk Seviyesi
+
+- Düşük
+- Orta
+- Yüksek
+- Kritik sinyal
+
+#### Vatandaş Güven Skoru
+
+Kullanıcının geçmiş doğrulanmış bildirimleri ve kötüye kullanım
+sonuçlarına dayanan yardımcı değerdir.
+
+Değer aralığı: 0–100
+
+---
+
+## 12. Risk Bazlı Eşik Akışı
+
+Örnek başlangıç eşikleri:
+
+| Risk seviyesi | Örnek | Temel eşik |
+|---|---|---:|
+| Düşük | Kırık kaldırım taşı, küçük yüzey hasarı | %85 |
+| Orta | Yol çukuru, bozuk levha, yerel su birikintisi | %70 |
+| Yüksek | Ana su borusu patlağı, yolu kapatan büyük hasar | %50 |
+| Kritik sinyal | Doğalgaz kokusu, büyük çökme ihtimali | Eşikten bağımsız kritik inceleme |
+
+### Dinamik Eşik Geçilirse
+
+1. Bildirim normal veya yüksek öncelikli inceleme kuyruğuna eklenir.
+2. Belediye çalışanının haritasında gri pin olarak gösterilir.
+3. Bildirimi yapan vatandaş kendi gri pinini görür.
+4. Diğer vatandaşlar bildirimi göremez.
+5. Belediye çalışanının doğrulaması beklenir.
+
+### Dinamik Eşik Geçilmezse
+
+1. Bildirim “Düşük Güvenli İnceleme” kuyruğuna eklenir.
+2. Belediye haritasında varsayılan olarak gösterilmez.
+3. Belediye çalışanı filtreyi açarak kaydı haritada görebilir.
+4. Bildirimi yapan vatandaş kendi gri pinini görmeye devam eder.
+5. Diğer vatandaşlar bildirimi göremez.
+6. Bildirim otomatik olarak reddedilmez.
+
+### Yüksek Risk Algılanırsa
+
+1. İçerik güveni normal eşiğin altında olsa bile kayıt öncelikli
+   incelemeye alınabilir.
+2. Belediye çalışanının ekranında yüksek öncelik uyarısı gösterilir.
+3. Bildirimin otomatik olarak doğrulandığı varsayılmaz.
+4. Diğer vatandaşların haritasında yayınlanmaz.
+
+---
+
+## 13. Vatandaş Güven Skoru Akışı
+
+### Yeni Kullanıcı
+
+1. Yeni hesap nötr güven skoruyla başlar.
+2. Yeni kullanıcı otomatik olarak güvensiz kabul edilmez.
+3. İlk bildirimler içerik ve risk sinyallerine göre değerlendirilir.
+
+### Doğrulanmış Bildirim
+
+1. Belediye bildirimi doğrular.
+2. Sonuç vatandaşın geçmişine eklenir.
+3. Vatandaş güven skoru kademeli olarak artabilir.
+4. Tek bir doğrulanmış bildirim aşırı puan artışı oluşturmaz.
+
+### Hatalı veya Kötüye Kullanım Bildirimi
+
+1. Belediye bildirimin hatalı veya kötüye kullanım olduğunu doğrular.
+2. Sonuç kullanıcı geçmişine eklenir.
+3. Vatandaş güven skoru kademeli olarak azalabilir.
+4. Tek bir hata kalıcı ve ağır cezaya neden olmaz.
+
+### Skor Düzeltmesi
+
+1. Kullanıcı otomatik değerlendirmeye itiraz eder.
+2. Belediye çalışanı kaydı yeniden inceler.
+3. Önceki karar hatalıysa bildirim sonucu düzeltilir.
+4. Vatandaş güven skoru yeniden hesaplanır.
+
+### Kurallar
+
+- Vatandaşlar birbirlerinin skorunu göremez.
+- Skor tek başına ret gerekçesi değildir.
+- Eski hataların etkisi zamanla azalır.
+- Skor, temel belediye hizmetlerine erişimi engellemek için kullanılmaz.
+- Yapay zekâ tek başına kalıcı kullanıcı engeli uygulamaz.
+
+---
+
+## 14. Haritada Olmayan Çalışmayı Bildirme
+
+### Başlangıç Koşulu
+
+Kullanıcı sahada bir çalışma görmüştür ancak haritada bu konumda aktif
+veya planlanmış pin bulunmamaktadır.
+
+### Ana Akış
+
+1. Kullanıcı haritadaki “Bildir” düğmesine basar.
+2. “Haritada olmayan çalışma” seçeneğini seçer.
+3. Giriş yapmamışsa telefon doğrulamasına yönlendirilir.
+4. Uygulama kamerasıyla anlık fotoğraf çeker.
+5. Fotoğraf kalite kontrolünden geçirilir.
+6. Konum önerilir veya kullanıcı tarafından seçilir.
+7. Kullanıcı açıklama ekler.
+8. Fotoğraf üzerinde kişisel bilgiler bulanıklaştırılır.
+9. Yapay zekâ içerik güvenini ve olay riskini değerlendirir.
+10. Vatandaş güven skoru yardımcı sinyal olarak alınır.
+11. Yakındaki mevcut ve planlanan kayıtlar kontrol edilir.
+12. Bildirim uygun belediye kuyruğuna gönderilir.
+13. Kullanıcı kendi haritasında gri pin görür.
+14. Diğer vatandaşlar gri pini göremez.
+
+---
+
+## 15. Kritik Sinyal Akışı
+
+### Başlangıç Koşulu
+
+Yapay zekâ fotoğraf veya açıklamada doğalgaz kokusu, büyük çökme veya
+benzeri ciddi tehlike ihtimali tespit etmiştir.
+
+### Ana Akış
+
+1. Kullanıcıya belirgin bir uyarı gösterilir:
+
+   > Bu uygulama acil çağrı hizmeti değildir. Hayati tehlike varsa
+   > uygun resmî acil yardım kanalına başvurun.
+
+2. Kullanıcı uygun resmî acil yardım kanalına yönlendirilir.
+3. Kullanıcı isterse belediye bildirimini ayrıca tamamlayabilir.
+4. Bildirim eşikten bağımsız olarak “Kritik İnceleme” kuyruğuna eklenir.
+5. Belediye haritasında turuncu uyarı üçgeniyle gösterilir.
+6. Yetkili çalışana öncelikli bildirim gönderilir.
+7. Kayıt diğer vatandaşların haritasında gösterilmez.
+8. Belediye çalışanının insan doğrulaması beklenir.
+
+### Kurallar
+
+- Uygulama otomatik acil çağrı başlatmaz.
+- Kullanıcıya acil müdahale garantisi verilmez.
+- Yapay zekâ bildirimin kesin olarak gerçek olduğunu varsaymaz.
+- Turuncu uyarı yalnızca yetkili belediye çalışanlarına gösterilir.
+
+---
+
+## 16. Belediye Onayı Sonrası Pin Dönüşümü
+
+### Başlangıç Koşulu
+
+Yetkili belediye çalışanı vatandaş bildirimini doğrulamıştır.
+
+### Ana Akış
+
+1. Belediye çalışanı kategoriyi kontrol eder.
+2. Sorumlu belediye birimini belirler.
+3. Başlangıç zamanı eklenir.
+4. Tahmini bitiş veya çözüm süresi eklenir.
+5. Etkilenen alan belirlenir.
+6. Bildirim aktif olay olarak yayınlanır.
+7. Kullanıcının kişisel gri pini kırmızı ünlem pinine dönüşür.
+8. Kırmızı ünlem pini bütün vatandaşların haritasında gösterilir.
+9. Bildirimi yapan kullanıcıya onay bildirimi gönderilir.
+10. Vatandaş bildirimi kırmızı ana olayla ilişkilendirilir.
+
+---
+
+## 17. Belediye Reddi Sonrası Akış
+
+### Başlangıç Koşulu
+
+Yetkili çalışan bildirimi reddetmiş veya kapsam dışı olarak belirlemiştir.
+
+### Ana Akış
+
+1. Kullanıcının kişisel haritasındaki gri pin kaldırılır.
+2. Bildirim “Reddedildi” veya “Kapsam Dışı” durumuna geçirilir.
+3. Kullanıcıya mümkünse kısa bir gerekçe gösterilir.
+4. Kayıt diğer vatandaşların haritasında yayınlanmaz.
+5. Sonuç vatandaş güven sistemine ölçülü bir sinyal olarak aktarılabilir.
+
+### Kurallar
+
+- Her ret kötüye kullanım anlamına gelmez.
+- Yanlış kategori veya belediye kapsamı dışındaki bildirimler kullanıcıyı
+  ağır biçimde cezalandırmaz.
+- Kötüye kullanım sonucu ayrıca insan tarafından doğrulanmalıdır.
+
+---
+
+## 18. Mükerrer Bildirim Akışı
+
+1. Sistem konum, fotoğraf, kategori ve zaman benzerliğini hesaplar.
+2. Benzer kayıtlar belediye çalışanına gösterilir.
+3. Belediye çalışanı aynı olaya ait olup olmadığını değerlendirir.
+4. Aynı olaya ait kayıtlar birleştirilir.
+5. Kullanıcının kişisel gri pini kaldırılır.
+6. Kullanıcı doğrulanmış veya bekleyen ana olaya yönlendirilir.
+7. Kullanıcı kendi takip kaydını görmeye devam eder.
+8. Ana olayın durumu değiştiğinde bağlı bildirimler güncellenir.
+
+Vatandaşlar diğer kullanıcıların kimlik bilgilerini göremez ve başka
+bildirimlere destek veremez.
+
+---
+
+## 19. Bildirimleri Takip Etme
+
+### Ana Akış
+
+1. Kullanıcı “Bildirimlerim” menüsünü açar.
+2. Kendi bildirimleri listelenir.
+3. Kullanıcı tarih veya duruma göre filtreleme yapabilir.
+4. Bir bildirimi açar.
+5. İşlem adımları zaman çizelgesi şeklinde gösterilir.
+6. Tahmini çözüm süresi varsa görüntülenir.
+7. Belediye açıklamaları gösterilir.
+8. Bildirim çözüldüyse çözüm açıklaması ve sonuç fotoğrafı gösterilir.
+
+### Bildirim Durumları
+
+- Alındı
+- Yapay zekâ ön incelemesinde
+- İBB incelemesinde
+- Kritik incelemede
+- İlgili birime yönlendirildi
+- İlçe belediyesine yönlendirildi
+- Saha ekibine atandı
+- Çalışma devam ediyor
+- Ek bilgi gerekli
+- Başka bildirimle birleştirildi
+- Çözüldü
+- Kapsam dışı
+- Reddedildi
+
+---
+
+## 20. Ek Bilgi Gönderme
+
+1. Belediye çalışanı vatandaştan ek bilgi ister.
+2. Kullanıcıya bildirim gönderilir.
+3. Kullanıcı ilgili kaydı açar.
+4. Talep edilen bilgi görüntülenir.
+5. Kullanıcı ek açıklama yazar.
+6. Gerekirse uygulama kamerasıyla yeni anlık fotoğraf çeker.
+7. Bilgiler gönderilir.
+8. Bildirim tekrar belediye incelemesine alınır.
+9. İşlem geçmişine ek bilgi kaydı eklenir.
+
+---
+
+## 21. Kötüye Kullanım ve Kısıtlama
+
+### Tetikleyici Durumlar
+
+- Kısa sürede olağan dışı sayıda bildirim
+- Sürekli ilgisiz fotoğraflar
+- Aynı içeriğin tekrar gönderilmesi
+- Fotoğraf, açıklama ve konum uyumsuzluğu
+- Uygunsuz veya zararlı içerik
+- Otomatik gönderim şüphesi
+- Gerçekçi olmayan konum değişimleri
+
+### Kademeli Akış
+
+1. Kullanıcıdan bildirimi düzeltmesi istenir.
+2. Davranış tekrar ederse ek doğrulama uygulanır.
+3. Gönderim sıklığı geçici olarak yavaşlatılır.
+4. Kötüye kullanım devam ederse gönderim geçici olarak engellenir.
+5. Ciddi durum yetkili çalışan tarafından incelenir.
+6. Uzun süreli kısıtlama insan kararıyla uygulanır.
+7. Kullanıcıya kısıtlama nedeni gösterilir.
+8. Yeniden inceleme veya itiraz seçeneği sunulur.
+
+---
+
+# BELEDİYE AKIŞLARI
+
+## 22. Belediye Çalışanının Girişi
+
+1. Kullanıcı kurumsal giriş bilgilerini girer.
+2. Güçlü kimlik doğrulama uygulanır.
+3. Gerekirse ikinci doğrulama tamamlanır.
+4. Kullanıcının rolü ve bağlı olduğu birim belirlenir.
+5. Yetkisine uygun ana panele yönlendirilir.
+6. Oturum açma işlemi denetim kaydına eklenir.
+
+Çok sayıda başarısız girişte geçici kısıtlama uygulanır.
+
+---
+
+## 23. Belediye Ana Paneli
+
+Ana panelde şu özetler gösterilebilir:
+
+- Kritik inceleme sayısı
+- Yüksek öncelikli bildirim sayısı
+- Normal inceleme sayısı
+- Düşük güvenli bildirim sayısı
+- Kötüye kullanım inceleme sayısı
+- Devam eden aktif çalışmalar
+- Planlanan çalışmalar
+- Ortalama ilk değerlendirme süresi
+- Birim bazlı açık görevler
+
+Kritik inceleme bölümü diğer kuyruklardan daha görünür biçimde sunulur.
+
+---
+
+## 24. Belediye Haritası
+
+Belediye haritasında:
+
+- Kırmızı ünlem: Doğrulanmış aktif olay
+- Sarı saat: Planlanan olay
+- Gri soru işareti: Dinamik eşiği geçen doğrulama bekleyen bildirim
+- Turuncu uyarı üçgeni: Yüksek veya kritik riskli bildirim
+
+gösterilir.
+
+Düşük güvenli bildirimler varsayılan olarak haritada görünmez.
+Yetkili çalışan “Düşük Güvenli Bildirimler” filtresini açarak bunları
+haritada görüntüleyebilir.
+
+---
+
+## 25. İnceleme Kuyrukları
+
+### Kritik İnceleme
+
+- Kritik tehlike sinyali bulunan bildirimler
+- Eşikten bağımsız biçimde bu kuyruğa alınır
+- Turuncu uyarı simgesiyle gösterilir
+- Hızlı insan incelemesi gerektirir
+
+### Yüksek Öncelikli İnceleme
+
+- Geniş alanı etkileyebilecek sorunlar
+- Önemli altyapı hasarı ihtimali bulunan kayıtlar
+- Düşük içerik güvenine rağmen yüksek risk taşıyan bildirimler
+
+### Normal İnceleme
+
+- Dinamik eşiği geçen standart bildirimler
+- Belediye haritasında gri pin olarak gösterilebilir
+
+### Düşük Güvenli İnceleme
+
+- Dinamik eşiği geçmeyen düşük riskli bildirimler
+- Varsayılan haritada gösterilmez
+- İnsan incelemesi olmadan reddedilmez
+
+### Kötüye Kullanım İncelemesi
+
+- Otomatik gönderim şüphesi
+- Tekrarlanan ilgisiz içerik
+- Yanıltıcı fotoğraf ihtimali
+- Sürekli konum ve içerik uyumsuzluğu
+
+---
+
+## 26. Bildirimi Değerlendirme
+
+1. Yetkili çalışan bildirimi açar.
+2. Vatandaş açıklamasını inceler.
+3. Bildirilen konumu haritada görüntüler.
+4. Bulanıklaştırılmış fotoğrafı inceler.
+5. Görevi gerektiriyorsa orijinal fotoğrafı açar.
+6. İçerik güven skorunu inceler.
+7. Olay risk seviyesini inceler.
+8. Vatandaş güven skorunu yardımcı sinyal olarak görür.
+9. Yapay zekâ kategori ve birim önerisini kontrol eder.
+10. Skor gerekçelerini inceler.
+11. Yakındaki kayıtları kontrol eder.
+12. Benzer bildirimleri inceler.
+13. Karar verir.
+
+### Olası Kararlar
+
+- Bildirimi doğrula
+- Kategoriyi değiştir
+- Risk seviyesini değiştir
+- Önceliği değiştir
+- İlgili İBB birimine yönlendir
+- İlçe belediyesine yönlendir
+- Saha ekibine ata
+- Ek bilgi iste
+- Başka kayıtla birleştir
+- Kapsam dışı olarak işaretle
+- Kötüye kullanım incelemesine gönder
+- Reddet
+
+### Kurallar
+
+- Vatandaş güven skoru tek başına ret nedeni değildir.
+- Yapay zekâ önerisi nihai karar değildir.
+- Orijinal fotoğrafa erişim kaydedilir.
+- Yapılan değişiklikler işlem geçmişine eklenir.
+
+---
+
+## 27. İBB Birimine Yönlendirme
+
+1. Yetkili çalışan kategori ve sorumluluk alanını kontrol eder.
+2. Sistem uygun İBB birimlerini önerir.
+3. Yetkili çalışan birim seçer.
+4. Gerekirse yönlendirme notu ekler.
+5. Bildirim ilgili birimin görev listesine aktarılır.
+6. Durum “İlgili Birime Yönlendirildi” olur.
+7. Vatandaş bilgilendirilir.
+8. Takip numarası korunur.
+
+---
+
+## 28. İlçe Belediyesine Yönlendirme
+
+1. İBB çalışanı ilgili ilçe belediyesini seçer.
+2. Yönlendirme gerekçesini ekler.
+3. Yalnızca gerekli veriler aktarılır.
+4. Aktarım zamanı ve personel bilgisi kaydedilir.
+5. Durum “İlçe Belediyesine Yönlendirildi” olur.
+6. Vatandaş bilgilendirilir.
+7. Aynı takip numarası kullanılmaya devam edilir.
+
+### Yanlış Yönlendirme
+
+1. İlçe belediyesi bildirimin kendi sorumluluğunda olmadığını belirtir.
+2. Gerekçe kaydedilir.
+3. Bildirim İBB inceleme kuyruğuna geri gönderilir.
+4. Önceki işlem geçmişi korunur.
+5. Vatandaşın yeni bildirim oluşturması gerekmez.
+
+---
+
+## 29. Saha Ekibine Atama ve Çözüm
+
+1. Birim personeli doğrulanmış bildirimi açar.
+2. Uygun saha ekibini seçer.
+3. Görev açıklamasını ekler.
+4. Tahmini müdahale süresini belirler.
+5. Durum “Saha Ekibine Atandı” olur.
+6. Vatandaş bilgilendirilir.
+
+### Çalışma Başladığında
+
+1. Durum “Çalışma Devam Ediyor” yapılır.
+2. Tahmini bitiş süresi güncellenebilir.
+3. Vatandaş bilgilendirilir.
+
+### Çalışma Tamamlandığında
+
+1. Saha ekibi çözüm açıklaması ekler.
+2. Gerekirse sonuç fotoğrafı ekler.
+3. Yetkili birim sonucu kontrol eder.
+4. Durum “Çözüldü” yapılır.
+5. Vatandaş bilgilendirilir.
+6. Kayıt saklama politikasına göre arşivlenir.
+
+---
+
+## 30. Belediye Çalışması Oluşturma
+
+1. Yetkili personel “Yeni Çalışma” seçeneğini açar.
+2. Çalışma konumunu seçer.
+3. Çalışma türünü belirler.
+4. Başlangıç tarihini ve saatini girer.
+5. Tahmini süreyi girer.
+6. Etkilenecek yolları veya bölgeleri seçer.
+7. Sorumlu belediye birimini belirler.
+8. Açıklama ekler.
+9. Sistem zorunlu alanları kontrol eder.
+10. Etki analizi başlatılır.
+
+---
+
+## 31. Etki Analizi
+
+1. Sistem çalışma konumunu ve zaman aralığını alır.
+2. Anlık ve geçmiş trafik verilerini inceler.
+3. Etkilenecek yolları belirler.
+4. Yakındaki toplu taşıma hatlarını kontrol eder.
+5. Aynı bölgedeki diğer çalışmaları arar.
+6. Olası çalışma çakışmalarını belirler.
+7. Farklı saat aralıklarını karşılaştırır.
+8. Sonuçları yetkili çalışana gösterir.
+
+Gösterilebilecek sonuçlar:
+
+- Tahmini trafik etkisi
+- Etkilenecek yollar
+- Etkilenecek toplu taşıma hatları
+- Riskli saat aralıkları
+- Çalışma çakışmaları
+- Alternatif tarih veya saat
+- Alternatif güzergâh
+- Vatandaş bilgilendirme metni
+
+---
+
+## 32. Çalışmayı Yayınlama
+
+1. Yetkili çalışan bilgileri kontrol eder.
+2. Planlanan çalışmayı yayınlar.
+3. Çalışma genel haritada sarı saat pini olarak gösterilir.
+4. Başlangıç zamanı geldiğinde aktif duruma geçirilir.
+5. Pin kırmızı ünlem pinine dönüşür.
+6. Süre değişirse kayıt güncellenir.
+7. Çalışma tamamlandığında pin pasif hâle getirilir.
+8. Kayıt geçmiş olaylara aktarılır.
+
+---
+
+## 33. Eksik Güncel Veriyi Belediye Panelinden Ekleme
+
+1. Belediye çalışanı açık veri kaynağında bulunmayan olayı fark eder.
+2. “Yeni Olay Ekle” seçeneğini açar.
+3. Olay türünü seçer.
+4. Konumu belirler.
+5. Başlangıç ve tahmini bitiş zamanını girer.
+6. Etkilenen alanı belirtir.
+7. Sorumlu birimi seçer.
+8. Veri kaynağını “Belediye Yetkili Girişi” olarak işaretler.
+9. Bilgileri kontrol eder.
+10. Olayı yayınlar.
+11. Aktif olay kırmızı, planlanan olay sarı pin olarak gösterilir.
+
+---
+
+# HESAP VE VERİ AKIŞLARI
+
+## 34. Hesap Silme Talebi
+
+1. Kullanıcı hesap ayarlarını açar.
+2. “Hesabımı Sil” seçeneğine basar.
+3. İşlemin sonuçları açıklanır.
+4. Kullanıcının kimliği tekrar doğrulanır.
+5. Kullanıcı talebi onaylar.
+6. Hesap yeni bildirim oluşturmaya kapatılır.
+7. Hukuken saklanması gerekmeyen veriler silme sürecine alınır.
+8. Vatandaş güven skoru hukuki zorunluluk yoksa silinir veya anonimleştirilir.
+9. Devam eden bildirimler ayrıca değerlendirilir.
+10. Kullanıcı işlem sonucu hakkında bilgilendirilir.
+
+---
+
+## 35. KVKK Başvurusu ve Otomatik Karara İtiraz
+
+1. Kullanıcı “Kişisel Verilerim” bölümünü açar.
+2. Başvuru türünü seçer:
+   - Verilerim hakkında bilgi istiyorum
+   - Verilerimi düzeltmek istiyorum
+   - Verilerimin silinmesini istiyorum
+   - Vatandaş güven skoruma itiraz ediyorum
+   - Otomatik değerlendirmeye itiraz ediyorum
+3. Kullanıcının kimliği doğrulanır.
+4. Talep veri sorumlusuna iletilir.
+5. Talebe takip numarası verilir.
+6. Yetkili personel başvuruyu inceler.
+7. Gerekirse bildirim ve vatandaş güven skoru yeniden değerlendirilir.
+8. Sonuç kullanıcıya bildirilir.
+
+---
+
+# HATA VE İSTİSNA AKIŞLARI
+
+## 36. İBB Veri Kaynağına Erişilememesi
+
+1. Sistem dış veri kaynağına erişemez.
+2. Son başarılı veri geçici olarak kullanılabilir.
+3. Son güncellenme zamanı kullanıcıya gösterilir.
+4. Güncellik süresi aşılmışsa uyarı eklenir.
+5. Sistem yöneticisine hata kaydı gönderilir.
+6. Bağlantı daha sonra tekrar denenir.
+
+Eski veri kesin güncel bilgi gibi gösterilmez.
+
+---
+
+## 37. Bildirim Gönderme Hatası
+
+1. Kullanıcı gönder düğmesine basar.
+2. Sunucuya erişilemez veya işlem tamamlanamaz.
+3. Anlaşılır hata mesajı gösterilir.
+4. Bildirim geçici taslak olarak saklanabilir.
+5. Kullanıcı tekrar deneyebilir.
+6. Benzersiz işlem kimliğiyle mükerrer kayıt oluşması önlenir.
+
+---
+
+## 38. Yapay Zekâ Analizinin Tamamlanamaması
+
+1. Bildirim kullanıcıdan alınır.
+2. Yapay zekâ analizi teknik hata nedeniyle tamamlanamaz.
+3. Kullanıcının kişisel haritasında gri pin gösterilir.
+4. Bildirim “Manuel İnceleme” kuyruğuna eklenir.
+5. Belediye çalışanı yapay zekâ skoru olmadan kaydı değerlendirebilir.
+6. Kullanıcıdan aynı bildirimi tekrar göndermesi istenmez.
+
+---
+
+## 39. Yetkisiz Belediye Erişimi
+
+1. Belediye çalışanı yetkisi dışındaki kaynağa erişmeye çalışır.
+2. Erişim reddedilir.
+3. Kullanıcıya yetkisinin bulunmadığı bildirilir.
+4. Deneme güvenlik kaydına eklenir.
+5. Tekrarlanan şüpheli erişimler sistem yöneticisine bildirilir.
+
+---
+
+## 40. Temel Bildirim Yaşam Döngüsü
+
+Standart bildirim yaşam döngüsü:
+
+1. Bildirimin alınması
+2. Fotoğraf güvenliği ve bulanıklaştırma
+3. İçerik güven skoru hesaplama
+4. Risk seviyesi belirleme
+5. Vatandaş güven skorunu yardımcı sinyal olarak kullanma
+6. Dinamik eşik değerlendirmesi
+7. Uygun belediye kuyruğuna yerleştirme
+8. İBB çalışanı incelemesi
+9. İlgili birime veya ilçe belediyesine yönlendirme
+10. Saha ekibine atama
+11. Çözümün kaydedilmesi
+12. Vatandaşın bilgilendirilmesi
+13. Bildirimin kapatılması
+14. Saklama süresi sonunda silme veya anonimleştirme
+
+Her bildirim bütün adımlardan geçmek zorunda değildir.
+
+---
+
+## 41. Yarışma Prototipi Akışı
+
+Yarışma gösteriminde gerçek vatandaş verisi kullanılmaz.
+
+Demo akışı:
+
+1. Sentetik kullanıcı hesabıyla giriş yapılır.
+2. Örnek konum seçilir.
+3. Yarışma için hazırlanmış örnek fotoğraf çekim akışı gösterilir.
+4. Yüz ve plaka bulanıklaştırması gösterilir.
+5. İçerik güven skoru oluşturulur.
+6. Olay risk seviyesi belirlenir.
+7. Örnek vatandaş güven skoru uygulanır.
+8. Dinamik eşik hesaplanır.
+9. Bildirim uygun belediye kuyruğuna düşer.
+10. Vatandaş bildirimi kendi haritasında gri pin olarak görür.
+11. Diğer vatandaş görünümünde gri pin bulunmadığı gösterilir.
+12. Belediye çalışanı bildirimi inceler.
+13. Belediye çalışanı bildirimi doğrular.
+14. Gri pin kırmızı ünlem pinine dönüşür.
+15. Kırmızı pin bütün kullanıcıların haritasında görünür.
+
+Demo verileri:
+
+- Sentetik telefon numarası
+- Kurgusal kullanıcı hesabı
+- Örnek fotoğraf
+- Örnek veya yaklaşık konum
+- Simüle edilmiş güven skorları
+- Anonimleştirilmiş ya da açık veri
+
+olmalıdır.
+
+---
+
+## 42. Genel Kullanıcı Deneyimi Kuralları
+
+- Her işlemden sonra açık sonuç mesajı gösterilir.
+- Kullanıcı hangi aşamada olduğunu görebilir.
+- Geri dönüşü zor işlemlerde onay istenir.
+- Hata mesajları teknik terimlerden arındırılır.
+- Doğrulanmamış bilgiler diğer vatandaşlara gösterilmez.
+- Kullanıcı kendi bekleyen bildirimini görebilir.
+- Düşük güvenli bildirim otomatik olarak reddedilmez.
+- Yüksek riskli bildirim düşük güven nedeniyle gözden kaçırılmaz.
+- Tahmini süreler garanti olarak sunulmaz.
+- İzin reddedildiğinde mümkünse alternatif yöntem sağlanır.
+- Vatandaştan doğru belediye birimini bilmesi beklenmez.
+- Birimler arası aktarımda takip numarası korunur.
+- Kişisel bilgiler yalnızca yetkili kullanıcılara gösterilir.
+- Harita pinlerinde renk ve simge birlikte kullanılır.
+- Yapay zekâ değerlendirmeleri açıklanabilir gerekçelerle sunulur.
+- Nihai belediye kararlarında insan denetimi korunur.

@@ -1,0 +1,12 @@
+name: kent_takip_domain
+description: Pure Dart domain model and policies for İBB Kent Takip.
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+
+dev_dependencies:
+  test: ^1.26.3
+

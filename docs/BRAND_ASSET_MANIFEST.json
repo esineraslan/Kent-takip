@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "awaiting_official_assets",
+  "authority": "IBB Corporate Communications",
+  "policy": "Do not derive, redraw, recolor or crop official marks from screenshots.",
+  "assets": [],
+  "fontFamilies": [
+    {
+      "name": "Rubik",
+      "status": "fallback_only",
+      "purpose": "display"
+    },
+    {
+      "name": "Urbanist",
+      "status": "fallback_only",
+      "purpose": "body"
+    }
+  ]
+}
